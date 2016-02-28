@@ -17,8 +17,8 @@ import org.terasoluna.gfw.common.exception.BusinessException;
 import org.terasoluna.gfw.common.message.ResultMessage;
 import org.terasoluna.gfw.common.message.ResultMessages;
 
-import tutorial.app.domain.service.todo.TodoService;
 import tutorial.domain.model.Todo;
+import tutorial.domain.service.todo.TodoService;
 
 @Controller
 @RequestMapping("todo")

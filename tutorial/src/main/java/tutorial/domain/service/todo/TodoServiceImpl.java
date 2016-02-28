@@ -1,4 +1,4 @@
-package tutorial.app.domain.service.todo;
+package tutorial.domain.service.todo;
 
 import java.util.Collection;
 import java.util.Date;
