@@ -1,4 +1,4 @@
-package todo.app.welcome;
+package tutorial.app.welcome;
 
 import java.text.DateFormat;
 import java.util.Date;
