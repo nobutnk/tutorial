@@ -19,11 +19,14 @@
 <jsp:include page="/WEB-INF/views/common/navigation.jsp" />
     <h1>Add Todo</h1>
     <div id="todoForm">
+        <t:messagesPanel />
         <form:form
            action="${pageContext.request.contextPath}/todo/create"
             method="post" modelAttribute="todoForm">
             <form:input path="todoTitle" />
+            <form:errors path="todoTitle" />
             <form:input path="todoDetail" />
+            <form:errors path="todoDetail" />
             <form:button>Create Todo</form:button>
         </form:form>
     </div>

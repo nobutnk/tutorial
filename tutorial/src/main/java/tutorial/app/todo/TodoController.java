@@ -53,7 +53,7 @@ public class TodoController {
             Model model, RedirectAttributes attributes) {
 
         if (bindingResult.hasErrors()) {
-            return list(model);
+            return "todo/create";
         }
 
         Todo todo = beanMapper.map(todoForm, Todo.class);
