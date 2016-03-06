@@ -10,6 +10,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/common/navigation.jsp" />
     <div class="container-fluid" id="wrapper">
         <h1>Hello world!</h1>
         <span class="label label-info">The time on the server is ${serverTime}.</span>

@@ -43,6 +43,11 @@ public class TodoController {
         return "todo/list";
     }
     
+    @RequestMapping(value = "create", params = "form", method = RequestMethod.GET)
+    public String createForm(Model model) {
+        return "todo/create";
+    }
+    
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public String create(@Valid TodoForm todoForm, BindingResult bindingResult,
             Model model, RedirectAttributes attributes) {
