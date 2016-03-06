@@ -9,7 +9,9 @@
     <resultMap id="todoResultMap" type="Todo">
         <id property="todoId" column="todo_id" />
         <result property="todoTitle" column="todo_title" />
+        <result property="todoDetail" column="todo_detail" />
         <result property="finished" column="finished" />
+        <result property="updatedAt" column="updated_at" />
         <result property="createdAt" column="created_at" />
     </resultMap>
 
@@ -19,7 +21,9 @@
         SELECT
             todo_id,
             todo_title,
+            todo_detail,
             finished,
+            updated_at,
             created_at
         FROM
             todo
@@ -34,7 +38,9 @@
         SELECT
             todo_id,
             todo_title,
+            todo_detail,
             finished,
+            updated_at,
             created_at
         FROM
             todo
@@ -48,14 +54,18 @@
         (
             todo_id,
             todo_title,
+            todo_detail,
             finished,
+            updated_at,
             created_at
         )
         VALUES
         (
             #{todoId},
             #{todoTitle},
+            #{todoDetail},
             #{finished},
+            #{updatedAt},
             #{createdAt}
         )
     ]]>
@@ -67,7 +77,9 @@
         UPDATE todo
         SET
             todo_title = #{todoTitle},
+            todo_detail = #{todoDetail},
             finished = #{finished},
+            updated_at = #{updatedAt},
             created_at = #{createdAt}
         WHERE
             todo_id = #{todoId}

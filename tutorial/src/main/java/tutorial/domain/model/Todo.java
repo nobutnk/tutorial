@@ -9,8 +9,12 @@ public class Todo implements Serializable {
     private String todoId;
 
     private String todoTitle;
+    
+    private String todoDetail;
 
     private boolean finished;
+    
+    private Date updatedAt;
 
     private Date createdAt;
 
@@ -68,6 +72,34 @@ public class Todo implements Serializable {
      */
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    /**
+     * @return the todoDetail
+     */
+    public String getTodoDetail() {
+        return todoDetail;
+    }
+
+    /**
+     * @param todoDetail the todoDetail to set
+     */
+    public void setTodoDetail(String todoDetail) {
+        this.todoDetail = todoDetail;
+    }
+
+    /**
+     * @return the updatedAt
+     */
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    /**
+     * @param updatedAt the updatedAt to set
+     */
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
 }

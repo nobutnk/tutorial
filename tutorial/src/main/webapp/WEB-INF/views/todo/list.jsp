@@ -26,20 +26,30 @@
     </div>
     <hr />
     <div id="todoList">
-        <ul>
-            <c:forEach items="${todos}" var="todo">
-                <li><c:choose>
-                        <c:when test="${todo.finished}">
-                            <span class="strike">
-                            ${f:h(todo.todoTitle)}
-                            </span>
-                        </c:when>
-                        <c:otherwise>
-                            ${f:h(todo.todoTitle)}
-                         </c:otherwise>
-                    </c:choose></li>
-            </c:forEach>
-        </ul>
+    <table class="table table-hover">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>detail</th>
+        <th>finished</th>
+        <th>updated_at</th>
+        <th>created_at</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${todos}" var="todo">
+    <tr>
+        <td>${f:h(todo.todoId)}</td>
+        <td>${f:h(todo.todoTitle)}</td>
+        <td>${f:h(todo.todoDetail)}</td>
+        <td>${f:h(todo.finished)}</td>
+        <td><fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${todo.updatedAt}" /></td>
+        <td><fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${todo.createdAt}" /></td>
+    </tr>
+    </c:forEach>
+    </tbody>
+    </table>
     </div>
 </body>
 </html>
