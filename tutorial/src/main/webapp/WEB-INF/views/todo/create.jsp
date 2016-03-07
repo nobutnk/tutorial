@@ -21,18 +21,22 @@
     <div id="todoForm">
         <t:messagesPanel />
         <div class="container">
+        
+        
         <form:form
            action="${pageContext.request.contextPath}/todo/create"
             method="post" modelAttribute="todoForm">
+            
+            <form:errors path="*" element="div" cssClass="error-message-list" />
             <div class="form-group">
                 <label for="todoTitle">Title</label>
                 <form:input path="todoTitle" class="form-control"/>
-                <form:errors path="todoTitle" />
+                <form:errors path="todoTitle" cssClass="text-danger"/>
             </div>
             <div class="form-group">
                 <label for="todoDetail">Detail</label>
                 <form:input path="todoDetail" class="form-control"/>
-                <form:errors path="todoDetail" />
+                <form:errors path="todoDetail" cssClass="text-danger"/>
             </div>
             <form:button>Create Todo</form:button>
         </form:form>
