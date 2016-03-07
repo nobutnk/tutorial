@@ -41,7 +41,15 @@
     </thead>
     <tbody>
     <c:forEach items="${todos}" var="todo">
-    <tr>
+    <c:choose>
+        <c:when test="${todo.finished}">
+            <c:set var="trStyle" value="warning" />
+        </c:when>
+        <c:otherwise>
+            <c:set var="trStyle" value="" />
+        </c:otherwise>
+    </c:choose>
+    <tr class="${trStyle}">
         <td>${f:h(todo.todoId)}</td>
         <td>${f:h(todo.todoTitle)}</td>
         <td>${f:h(todo.todoDetail)}</td>

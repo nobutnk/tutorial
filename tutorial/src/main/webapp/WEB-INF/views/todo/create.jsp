@@ -20,15 +20,23 @@
     <h1>Add Todo</h1>
     <div id="todoForm">
         <t:messagesPanel />
+        <div class="container">
         <form:form
            action="${pageContext.request.contextPath}/todo/create"
             method="post" modelAttribute="todoForm">
-            <form:input path="todoTitle" />
-            <form:errors path="todoTitle" />
-            <form:input path="todoDetail" />
-            <form:errors path="todoDetail" />
+            <div class="form-group">
+                <label for="todoTitle">Title</label>
+                <form:input path="todoTitle" class="form-control"/>
+                <form:errors path="todoTitle" />
+            </div>
+            <div class="form-group">
+                <label for="todoDetail">Detail</label>
+                <form:input path="todoDetail" class="form-control"/>
+                <form:errors path="todoDetail" />
+            </div>
             <form:button>Create Todo</form:button>
         </form:form>
+        </div>
     </div>
     <hr />
 </div>

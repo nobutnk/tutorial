@@ -12,3 +12,8 @@ create table if not exists todo(
 );
 
 insert into todo (todo_id, todo_title, todo_detail, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', 'init_detail', false, current_timestamp, current_timestamp);
+insert into todo (todo_id, todo_title, todo_detail, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', 'init_detail', false, current_timestamp, current_timestamp);
+insert into todo (todo_id, todo_title, todo_detail, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', 'init_detail', false, current_timestamp, current_timestamp);
+insert into todo (todo_id, todo_title, todo_detail, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', 'init_detail', true, current_timestamp, current_timestamp);
+insert into todo (todo_id, todo_title, todo_detail, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', 'init_detail', false, current_timestamp, current_timestamp);
+insert into todo (todo_id, todo_title, todo_detail, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', 'init_detail', false, current_timestamp, current_timestamp);
