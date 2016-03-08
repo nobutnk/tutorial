@@ -12,7 +12,7 @@ public interface TodoRepository {
 
     void create(Todo todo);
 
-    boolean update(Todo todo);
+    int update(Todo todo);
 
     void delete(Todo todo);
 

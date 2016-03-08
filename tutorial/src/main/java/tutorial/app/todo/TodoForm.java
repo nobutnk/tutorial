@@ -8,15 +8,34 @@ import javax.validation.constraints.Size;
 public class TodoForm implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
+    public static interface TodoCreate {
+    };
 
-    @NotNull
-    @Size(min = 1, max = 30)
+    public static interface TodoFinish {
+    };
+    
+    public static interface TodoUpdate {
+    };
+    
+    public static interface TodoUpdateForm {
+    };
+
+    public static interface TodoDelete {
+    };
+    
+    @NotNull(groups = { TodoFinish.class, TodoUpdate.class, TodoUpdateForm.class, TodoDelete.class })
+    private String todoId;
+
+    @NotNull(groups = { TodoFinish.class, TodoUpdate.class })
+    @Size(min = 1, max = 30, groups = { TodoFinish.class, TodoUpdate.class })
     private String todoTitle;
     
-    @NotNull
-    @Size(min = 1, max = 100)
+    @NotNull(groups = { TodoFinish.class, TodoUpdate.class })
+    @Size(min = 1, max = 100, groups = { TodoFinish.class, TodoUpdate.class })
     private String todoDetail;
     
+    @NotNull(groups = { TodoFinish.class, TodoUpdate.class, TodoDelete.class })
     private String updatedAt;
 
     public String getTodoTitle() {
@@ -53,5 +72,19 @@ public class TodoForm implements Serializable {
      */
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    /**
+     * @return the todoId
+     */
+    public String getTodoId() {
+        return todoId;
+    }
+
+    /**
+     * @param todoId the todoId to set
+     */
+    public void setTodoId(String todoId) {
+        this.todoId = todoId;
     }
 }

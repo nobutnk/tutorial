@@ -25,6 +25,8 @@ public class TodoServiceImpl implements TodoService {
     @Inject
     TodoRepository todoRepository;
     
+    @Override
+    @Transactional(readOnly = true)
     public Todo findOne(String todoId) {
         Todo todo = todoRepository.findOne(todoId);
         if (todo == null) {
@@ -91,6 +93,22 @@ public class TodoServiceImpl implements TodoService {
     public void delete(String todoId) {
         Todo todo = findOne(todoId);
         todoRepository.delete(todo);
+    }
+
+    @Override
+    public Todo update(Todo todo) {
+        int resultNum = todoRepository.update(todo);
+        if (resultNum != 1) {
+            ResultMessages messages = ResultMessages.error();
+            messages.add(ResultMessage
+                    .fromText("[E003] The requested Todo is already updated. (id="
+                            + todo.getTodoId() + ")"));
+            throw new BusinessException(messages);
+        }
+        /* REMOVE THIS LINE IF YOU USE JPA
+            todoRepository.save(todo);
+           REMOVE THIS LINE IF YOU USE JPA */
+        return todo;
     }
 
 }

@@ -37,6 +37,7 @@
         <th>finished</th>
         <th>updated_at</th>
         <th>created_at</th>
+        <th>operation</th>
     </tr>
     </thead>
     <tbody>
@@ -56,6 +57,7 @@
         <td>${f:h(todo.finished)}</td>
         <td><fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${todo.updatedAt}" /></td>
         <td><fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${todo.createdAt}" /></td>
+        <td><a href="${pageContext.request.contextPath}/todo/update?form&todoId=${f:h(todo.todoId)}">update</a></td>
     </tr>
     </c:forEach>
     </tbody>
