@@ -35,15 +35,15 @@
             </div>
             <div class="form-group">
                 <label for="todoTitle">Title</label>
-                <form:input path="todoTitle" class="form-control" value="${f:h(todo.todoTitle)}"/>
+                <form:input path="todoTitle" class="form-control" />
                 <form:errors path="todoTitle" cssClass="text-danger"/>
             </div>
             <div class="form-group">
                 <label for="todoDetail">Detail</label>
-                <form:input path="todoDetail" class="form-control" value="${f:h(todo.todoDetail)}"/>
+                <form:input path="todoDetail" class="form-control" />
                 <form:errors path="todoDetail" cssClass="text-danger"/>
             </div>
-            <form:hidden path="updatedAt" value="${todo.updatedAt}" />
+            <form:hidden path="updatedAt" />
             <form:button>Update Todo</form:button>
         </form:form>
         </div>

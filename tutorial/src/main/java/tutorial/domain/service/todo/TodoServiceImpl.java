@@ -64,9 +64,6 @@ public class TodoServiceImpl implements TodoService {
         todo.setFinished(false);
 
         todoRepository.create(todo);
-        /* REMOVE THIS LINE IF YOU USE JPA
-            todoRepository.save(todo); // 10
-           REMOVE THIS LINE IF YOU USE JPA */
 
         return todo;
     }
@@ -83,9 +80,7 @@ public class TodoServiceImpl implements TodoService {
         }
         todo.setFinished(true);
         todoRepository.update(todo);
-        /* REMOVE THIS LINE IF YOU USE JPA
-            todoRepository.save(todo);
-           REMOVE THIS LINE IF YOU USE JPA */
+        
         return todo;
     }
 
@@ -105,9 +100,7 @@ public class TodoServiceImpl implements TodoService {
                             + todo.getTodoId() + ")"));
             throw new BusinessException(messages);
         }
-        /* REMOVE THIS LINE IF YOU USE JPA
-            todoRepository.save(todo);
-           REMOVE THIS LINE IF YOU USE JPA */
+        
         return todo;
     }
 

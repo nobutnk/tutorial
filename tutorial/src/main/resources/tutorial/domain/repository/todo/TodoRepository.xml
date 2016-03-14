@@ -79,10 +79,11 @@
             todo_title = #{todoTitle},
             todo_detail = #{todoDetail},
             finished = #{finished},
-            updated_at = #{updatedAt},
-            created_at = #{createdAt}
+            updated_at = current_timestamp
         WHERE
             todo_id = #{todoId}
+        AND
+            updated_at = #{updatedAt}
     ]]>
     </update>
 

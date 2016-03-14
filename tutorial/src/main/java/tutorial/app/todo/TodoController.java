@@ -92,7 +92,8 @@ public class TodoController {
             return list(model);
         }
 
-        model.addAttribute("todo", todo);
+        form = beanMapper.map(todo, TodoForm.class);
+        model.addAttribute("todoForm", form);
         return "todo/update";
     }
     
@@ -117,7 +118,7 @@ public class TodoController {
 
         attributes.addFlashAttribute(ResultMessages.success().add(
                 ResultMessage.fromText("Finished successfully!")));
-        return "redirect:/todo/update?form?todoId=" + todo.getTodoId();
+        return "redirect:/todo/update?form&todoId=" + todo.getTodoId();
     }
 
 }
