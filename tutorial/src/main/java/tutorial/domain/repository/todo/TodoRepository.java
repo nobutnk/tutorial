@@ -14,7 +14,7 @@ public interface TodoRepository {
 
     int update(Todo todo);
 
-    void delete(Todo todo);
+    int delete(Todo todo);
 
     long countByFinished(boolean finished);
 }

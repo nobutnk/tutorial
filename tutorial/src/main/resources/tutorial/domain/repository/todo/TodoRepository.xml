@@ -44,6 +44,8 @@
             created_at
         FROM
             todo
+        ORDER BY
+            todo_id DESC
     ]]>
     </select>
 
@@ -94,6 +96,8 @@
             todo
         WHERE
             todo_id = #{todoId}
+        AND
+            updated_at = #{updatedAt}
     ]]>
     </delete>
 

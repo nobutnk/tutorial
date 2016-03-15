@@ -69,7 +69,7 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public Todo finish(String todoId) {
+    public Todo finish(String todoId, Date updatedAt) {
         Todo todo = findOne(todoId);
         if (todo.isFinished()) {
             ResultMessages messages = ResultMessages.error();
@@ -79,15 +79,31 @@ public class TodoServiceImpl implements TodoService {
             throw new BusinessException(messages);
         }
         todo.setFinished(true);
-        todoRepository.update(todo);
+        todo.setUpdatedAt(updatedAt);
+        int resultNum = todoRepository.update(todo);
+        if (resultNum != 1) {
+            ResultMessages messages = ResultMessages.error();
+            messages.add(ResultMessage
+                    .fromText("[E003] The requested Todo is already updated. (id="
+                            + todo.getTodoId() + ")"));
+            throw new BusinessException(messages);
+        }
         
         return todo;
     }
 
     @Override
-    public void delete(String todoId) {
+    public void delete(String todoId, Date updatedAt) {
         Todo todo = findOne(todoId);
-        todoRepository.delete(todo);
+        todo.setUpdatedAt(updatedAt);
+        int resultNum = todoRepository.delete(todo);
+        if (resultNum != 1) {
+            ResultMessages messages = ResultMessages.error();
+            messages.add(ResultMessage
+                    .fromText("[E003] The requested Todo is already updated. (id="
+                            + todo.getTodoId() + ")"));
+            throw new BusinessException(messages);
+        }
     }
 
     @Override

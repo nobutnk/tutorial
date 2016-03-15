@@ -15,7 +15,7 @@
     <h1>Todo List</h1>
     <div id="todoForm">
         <%-- messages --%>
-        <t:messagesPanel />
+        <t:messagesPanel/>
         <div class="container">
         <form:form
            action="${pageContext.request.contextPath}/todo/create"
@@ -64,10 +64,10 @@
                     data-n="${f:h(todo.todoId)}">
                 <input
                     type="button" value="finish" class="btn btn-success" id="finish-${f:h(todo.todoId)}"
-                    data-n="${f:h(todo.todoId)}" data-m='<fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${todo.updatedAt}" />'>
+                    data-n="${f:h(todo.todoId)}" data-m='<fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss.SSS" value="${todo.updatedAt}" />'>
                 <input
                     type="button" value="delete" class="btn btn-warning" id="delete-${f:h(todo.todoId)}"
-                    data-n="${f:h(todo.todoId)}" data-m='<fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${todo.updatedAt}" />'>
+                    data-n="${f:h(todo.todoId)}" data-m='<fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss.SSS" value="${todo.updatedAt}" />'>
                     </td>
         </tr>
         </c:forEach>
@@ -100,13 +100,13 @@
         <%-- for finish form --%>
         <form:form id="finishTodoForm" method="post" action="${pageContext.request.contextPath}/todo/finish">
             <input type="hidden" name="todoId" id="finishTodoId">
-            <input type="hidden" name="todoId" id="finishUpdatedAt">
+            <input type="hidden" name="updatedAt" id="finishUpdatedAt">
         </form:form>
         <%-- /for finish form --%>
         <%-- for delete form --%>
-        <form:form id="deleteodoForm" method="post" action="${pageContext.request.contextPath}/todo/delete">
+        <form:form id="deleteTodoForm" method="post" action="${pageContext.request.contextPath}/todo/delete">
             <input type="hidden" name="todoId" id="deleteTodoId">
-            <input type="hidden" name="todoId" id="deleteUpdatedAt">
+            <input type="hidden" name="updatedAt" id="deleteUpdatedAt">
         </form:form>
         <%-- /for delete form --%>
         </div>
