@@ -34,9 +34,21 @@
                 <form:errors path="todoTitle" cssClass="text-danger"/>
             </div>
             <div class="form-group">
+                <label for="todoCategory">Category</label>
+                <form:select path="todoCategory" class="form-control">
+                    <form:option value="" label="--Select--" />
+                    <form:options items="${CL_TODO_CATEGORIES}" />
+                </form:select>
+            </div>
+            <div class="form-group">
                 <label for="todoDetail">Detail</label>
                 <form:input path="todoDetail" class="form-control"/>
                 <form:errors path="todoDetail" cssClass="text-danger"/>
+            </div>
+            <div class="form-group">
+                <label for="startDate">start</label>
+                <form:input path="startDate" class="form-control"/>
+                <form:errors path="startDate" cssClass="text-danger"/>
             </div>
             <form:button>Create Todo</form:button>
         </form:form>

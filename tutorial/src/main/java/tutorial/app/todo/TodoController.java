@@ -3,7 +3,6 @@ package tutorial.app.todo;
 import java.util.Collection;
 
 import javax.inject.Inject;
-import javax.validation.Valid;
 import javax.validation.groups.Default;
 
 import org.dozer.Mapper;
@@ -19,6 +18,7 @@ import org.terasoluna.gfw.common.exception.BusinessException;
 import org.terasoluna.gfw.common.message.ResultMessage;
 import org.terasoluna.gfw.common.message.ResultMessages;
 
+import tutorial.app.todo.TodoForm.TodoCreate;
 import tutorial.app.todo.TodoForm.TodoDelete;
 import tutorial.app.todo.TodoForm.TodoFinish;
 import tutorial.app.todo.TodoForm.TodoUpdate;
@@ -55,7 +55,8 @@ public class TodoController {
     }
     
     @RequestMapping(value = "create", method = RequestMethod.POST)
-    public String create(@Valid TodoForm todoForm, BindingResult bindingResult,
+    public String create(@Validated({ Default.class, TodoCreate.class }) TodoForm todoForm,
+            BindingResult bindingResult,
             Model model, RedirectAttributes attributes) {
 
         if (bindingResult.hasErrors()) {

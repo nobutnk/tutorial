@@ -10,6 +10,8 @@ public class Todo implements Serializable {
 
     private String todoTitle;
     
+    private String todoCategory;
+    
     private String todoDetail;
 
     private boolean finished;
@@ -100,6 +102,20 @@ public class Todo implements Serializable {
      */
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    /**
+     * @return the todoCategory
+     */
+    public String getTodoCategory() {
+        return todoCategory;
+    }
+
+    /**
+     * @param todoCategory the todoCategory to set
+     */
+    public void setTodoCategory(String todoCategory) {
+        this.todoCategory = todoCategory;
     }
 
 }

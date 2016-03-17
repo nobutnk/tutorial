@@ -5,6 +5,9 @@ import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.maru.m4hv.extensions.constraints.ActualDate;
+import org.terasoluna.gfw.common.codelist.ExistInCodeList;
+
 public class TodoForm implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -27,13 +30,21 @@ public class TodoForm implements Serializable {
     @NotNull(groups = { TodoFinish.class, TodoUpdate.class, TodoUpdateForm.class, TodoDelete.class })
     private String todoId;
 
-    @NotNull(groups = { TodoUpdate.class })
+    @NotNull(groups = { TodoCreate.class, TodoUpdate.class })
     @Size(min = 1, max = 30, groups = { TodoFinish.class, TodoUpdate.class })
     private String todoTitle;
     
-    @NotNull(groups = { TodoUpdate.class })
+    @NotNull(groups = { TodoCreate.class, TodoUpdate.class })
+    @ExistInCodeList(codeListId = "CL_TODO_CATEGORIES", groups = { TodoFinish.class, TodoUpdate.class })
+    private String todoCategory;
+    
+    @NotNull(groups = { TodoCreate.class, TodoUpdate.class })
     @Size(min = 1, max = 100, groups = { TodoFinish.class, TodoUpdate.class })
     private String todoDetail;
+    
+    @NotNull(groups = {TodoCreate.class})
+    @ActualDate(until = "20/01/01", from = "2000/10/10", patterns = {"yyyy/MM/dd"}, groups = {TodoCreate.class})
+    private String startDate;
     
     @NotNull(groups = { TodoFinish.class, TodoUpdate.class, TodoDelete.class })
     private String updatedAt;
@@ -86,5 +97,33 @@ public class TodoForm implements Serializable {
      */
     public void setTodoId(String todoId) {
         this.todoId = todoId;
+    }
+
+    /**
+     * @return the startDate
+     */
+    public String getStartDate() {
+        return startDate;
+    }
+
+    /**
+     * @param startDate the startDate to set
+     */
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    /**
+     * @return the todoCategory
+     */
+    public String getTodoCategory() {
+        return todoCategory;
+    }
+
+    /**
+     * @param todoCategory the todoCategory to set
+     */
+    public void setTodoCategory(String todoCategory) {
+        this.todoCategory = todoCategory;
     }
 }

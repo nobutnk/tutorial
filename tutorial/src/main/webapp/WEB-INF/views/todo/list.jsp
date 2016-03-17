@@ -31,6 +31,7 @@
         <tr>
             <th>id</th>
             <th>title</th>
+            <th>category</th>
             <th>detail</th>
             <th>finished</th>
             <th>updated_at</th>
@@ -55,6 +56,7 @@
         <tr class="${trStyle}">
             <td>${f:h(todo.todoId)}</td>
             <td>${f:h(todo.todoTitle)}</td>
+            <td>${f:h(CL_TODO_CATEGORIES[todo.todoCategory])}</td>
             <td>${f:h(todo.todoDetail)}</td>
             <td>${f:h(todo.finished)}</td>
             <td><fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${todo.updatedAt}" /></td>
