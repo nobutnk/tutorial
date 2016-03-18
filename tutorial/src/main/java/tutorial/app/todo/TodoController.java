@@ -49,6 +49,13 @@ public class TodoController {
         return "todo/list";
     }
     
+    @RequestMapping(value = "list", params= "csv", method = RequestMethod.GET)
+    public String listCsv(Model model) {
+        Collection<Todo> todos = todoService.findAll();
+        model.addAttribute("todos", todos);
+        return "todoCsvView";
+    }
+    
     @RequestMapping(value = "create", params = "form", method = RequestMethod.GET)
     public String createForm(Model model) {
         return "todo/create";

@@ -45,11 +45,6 @@
                 <form:input path="todoDetail" class="form-control"/>
                 <form:errors path="todoDetail" cssClass="text-danger"/>
             </div>
-            <div class="form-group">
-                <label for="startDate">start</label>
-                <form:input path="startDate" class="form-control"/>
-                <form:errors path="startDate" cssClass="text-danger"/>
-            </div>
             <form:button>Create Todo</form:button>
         </form:form>
         </div>

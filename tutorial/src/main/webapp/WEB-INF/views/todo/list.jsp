@@ -76,6 +76,8 @@
         </tbody>
         </table>
         
+        <a href="${pageContext.request.contextPath}/todo/list?csv">Download csv</a>
+        
         <script type="text/javascript">
         jQuery('[id^=update-]').click(function(){
             $('#updateTodoId').val($(this).data("n"));

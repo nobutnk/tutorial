@@ -5,7 +5,6 @@ import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.maru.m4hv.extensions.constraints.ActualDate;
 import org.terasoluna.gfw.common.codelist.ExistInCodeList;
 
 public class TodoForm implements Serializable {
@@ -41,10 +40,6 @@ public class TodoForm implements Serializable {
     @NotNull(groups = { TodoCreate.class, TodoUpdate.class })
     @Size(min = 1, max = 100, groups = { TodoFinish.class, TodoUpdate.class })
     private String todoDetail;
-    
-    @NotNull(groups = {TodoCreate.class})
-    @ActualDate(until = "20/01/01", from = "2000/10/10", patterns = {"yyyy/MM/dd"}, groups = {TodoCreate.class})
-    private String startDate;
     
     @NotNull(groups = { TodoFinish.class, TodoUpdate.class, TodoDelete.class })
     private String updatedAt;
@@ -97,20 +92,6 @@ public class TodoForm implements Serializable {
      */
     public void setTodoId(String todoId) {
         this.todoId = todoId;
-    }
-
-    /**
-     * @return the startDate
-     */
-    public String getStartDate() {
-        return startDate;
-    }
-
-    /**
-     * @param startDate the startDate to set
-     */
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
     }
 
     /**
