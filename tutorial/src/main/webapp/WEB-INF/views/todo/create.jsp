@@ -22,9 +22,20 @@
         <t:messagesPanel />
         <div class="container">
         
+        <%-- for action --%>
+        <c:choose>
+            <c:when test="${!empty todoForm.todoId}">
+                <c:set var="targetAction" value="update" />
+            </c:when>
+            <c:otherwise>
+                <c:set var="targetAction" value="create" />
+            </c:otherwise>
+        </c:choose>
+        <%-- /for action --%>
+        
         
         <form:form
-           action="${pageContext.request.contextPath}/todo/create"
+           action="${pageContext.request.contextPath}/todo/${targetAction}"
             method="post" modelAttribute="todoForm">
             
             <form:errors path="*" element="div" cssClass="error-message-list" />

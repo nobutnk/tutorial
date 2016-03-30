@@ -8,11 +8,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap-3.3.6-dist/css/bootstrap.min.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/jquery/jquery-1.12.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-<style type="text/css">
-.strike {
-    text-decoration: line-through;
-}
-</style>
 </head>
 <body>
 <div class="container-fluid" id="wrapper">
@@ -22,9 +17,19 @@
         <t:messagesPanel />
         <div class="container">
         
+        <%-- for action --%>
+        <c:choose>
+            <c:when test="${!empty todoForm.todoId}">
+                <c:set var="targetAction" value="update" />
+            </c:when>
+            <c:otherwise>
+                <c:set var="targetAction" value="create" />
+            </c:otherwise>
+        </c:choose>
+        <%-- /for action --%>
         
         <form:form
-           action="${pageContext.request.contextPath}/todo/update"
+           action="${pageContext.request.contextPath}/todo/${targetAction}"
             method="post" modelAttribute="todoForm">
             
             <form:errors path="*" element="div" cssClass="error-message-list" />
