@@ -18,6 +18,10 @@
         <t:messagesPanel/>
     <hr />
         <div class="container" id="orderItemList">
+        
+        <spring:eval var="cart" expression="@sessionCart.cart" />
+        number of item in your cart = ${cart.count}
+        
         <table class="table table-hover">
         <thead>
         <tr>
@@ -61,13 +65,15 @@
         <script type="text/javascript">
         jQuery('[id^=add-]').click(function(){
             $('#addItemId').val($(this).data("n"));
+            $('#addUserId').val("00000001");
             $('#addItemForm').submit();
         });
         </script>
         
         <%-- for add form --%>
-        <form:form id="addItemForm" method="get" action="${pageContext.request.contextPath}/orderitem/add">
+        <form:form id="addItemForm" method="post" action="${pageContext.request.contextPath}/cart/add">
             <input type="hidden" name="itemId" id="addItemId">
+            <input type="hidden" name="userId" id="addUserId">
             <input type="hidden" name="form" >
         </form:form>
         <%-- /for add form --%>

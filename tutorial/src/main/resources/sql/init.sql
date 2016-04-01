@@ -49,6 +49,19 @@ create table if not exists item_category(
     created_at timestamp not null
 );
 
+create sequence if not exists cart_seq
+increment by 1
+start with 1;
+
+create table if not exists cart(
+    user_id varchar(36) not null,
+    item_id varchar(30) not null,
+    user_item_id integer not null,
+    updated_at timestamp,
+    created_at timestamp,
+    primary key (user_id, item_id, user_item_id)
+);
+
 -- todo list
 insert into todo (todo_id, todo_title, todo_category, todo_detail, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', '1', 'init_detail', false, current_timestamp, current_timestamp);
 insert into todo (todo_id, todo_title, todo_category, todo_detail, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', '2', 'init_detail', false, current_timestamp, current_timestamp);

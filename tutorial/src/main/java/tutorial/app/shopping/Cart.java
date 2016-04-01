@@ -4,19 +4,27 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import tutorial.domain.model.Item;
+import tutorial.domain.model.CartItem;
 
 public class Cart implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
-    List<Item> items = new ArrayList<Item>();
+    List<CartItem> cartItems = new ArrayList<CartItem>();
+    
+    public Integer getCount() {
+        return cartItems.size();
+    }
 
-    public void addItem(Item item) {
-        items.add(item);
+    public void addItem(CartItem item) {
+        cartItems.add(item);
+    }
+    
+    public void deleteItem(CartItem item) {
+        cartItems.remove(item);
     }
     
     public void clearCart() {
-        items.clear();
+        cartItems.clear();
     }
 }

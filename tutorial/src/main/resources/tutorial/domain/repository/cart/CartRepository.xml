@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- (1) -->
+<mapper namespace="tutorial.domain.repository.cart.CartRepository">
+
+    <!-- (2) -->
+    <resultMap id="cartResultMap" type="CartItem">
+        <id property="userId" column="user_id" />
+        <result property="itemId" column="item_id" />
+        <result property="user_item_id" column="userItemId" />
+        <result property="updatedAt" column="updated_at" />
+        <result property="createdAt" column="created_at" />
+    </resultMap>
+
+    <select id="findAll" resultMap="cartResultMap" parameterType="String">
+    <![CDATA[
+        SELECT
+            user_id,
+            item_id,
+            user_item_id,
+            updated_at,
+            created_at
+        FROM
+            cart
+        WHERE
+            user_id = #{userId}
+        ORDER BY
+            item_id DESC
+    ]]>
+    </select>
+    
+    <insert id="addItem" parameterType="CartItem">
+    <![CDATA[
+        INSERT INTO cart
+        (
+            user_id,
+            item_id,
+            user_item_id,
+            updated_at,
+            created_at
+        )
+        VALUES
+        (
+            #{userId},
+            #{itemId},
+            (
+                SELECT
+                    CASE
+                        WHEN MAX(user_item_id) is null
+                        THEN 1
+                        ELSE
+                            MAX(user_item_id) + 1
+                    END
+                FROM
+                    cart
+                WHERE
+                    user_id = #{userId}
+                AND
+                    item_id = #{itemId}
+            ),
+            #{updatedAt},
+            #{createdAt}
+        )
+    ]]>
+    </insert>
+    
+    <delete id="deleteItem" parameterType="CartItem">
+    <![CDATA[
+        DELETE cart
+        WHERE
+            user_id = #{userId}
+        AND
+            item_id = #{itemId}
+        AND
+            user_item_id = #{userItemId}
+        AND
+            updated_at = #{updatedAt}
+    ]]>
+    </delete>
+    
+    
+
+</mapper>
