@@ -8,8 +8,9 @@
     <!-- (2) -->
     <resultMap id="cartResultMap" type="CartItem">
         <id property="userId" column="user_id" />
-        <result property="itemId" column="item_id" />
-        <result property="user_item_id" column="userItemId" />
+        <result property="id" column="item_id" />
+        <result property="itemCode" column="item_code" />
+        <result property="quantity" column="quantity" />
         <result property="updatedAt" column="updated_at" />
         <result property="createdAt" column="created_at" />
     </resultMap>
@@ -19,7 +20,8 @@
         SELECT
             user_id,
             item_id,
-            user_item_id,
+            item_code,
+            quantity,
             updated_at,
             created_at
         FROM
@@ -37,34 +39,36 @@
         (
             user_id,
             item_id,
-            user_item_id,
+            item_code,
+            quantity,
             updated_at,
             created_at
         )
         VALUES
         (
             #{userId},
-            #{itemId},
-            (
-                SELECT
-                    CASE
-                        WHEN MAX(user_item_id) is null
-                        THEN 1
-                        ELSE
-                            MAX(user_item_id) + 1
-                    END
-                FROM
-                    cart
-                WHERE
-                    user_id = #{userId}
-                AND
-                    item_id = #{itemId}
-            ),
+            #{id},
+            #{itemCode},
             #{updatedAt},
             #{createdAt}
         )
     ]]>
     </insert>
+    
+    <update id="updateItem" parameterType="CartItem">
+    <![CDATA[
+        UPDATE cart
+        SET
+            quantity = #{quantity},
+            updated_at = #{updatedAt}
+        WHERE
+            user_id = #{userId}
+        AND
+            item_id = #{id}
+        AND
+            updated_at = #{updatedAt}
+    ]]>
+    </update>
     
     <delete id="deleteItem" parameterType="CartItem">
     <![CDATA[
@@ -72,14 +76,9 @@
         WHERE
             user_id = #{userId}
         AND
-            item_id = #{itemId}
-        AND
-            user_item_id = #{userItemId}
+            item_id = #{id}
         AND
             updated_at = #{updatedAt}
     ]]>
     </delete>
-    
-    
-
 </mapper>

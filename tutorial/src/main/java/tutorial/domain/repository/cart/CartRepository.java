@@ -10,5 +10,7 @@ public interface CartRepository {
     
     void addItem(CartItem cartItem);
     
+    int updateItem(CartItem cartItem);
+    
     int deleteItem(CartItem cartItem);
 }

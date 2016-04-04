@@ -56,10 +56,11 @@ start with 1;
 create table if not exists cart(
     user_id varchar(36) not null,
     item_id varchar(30) not null,
-    user_item_id integer not null,
+    item_code varchar(30) not null,
+    quantity integer not null,
     updated_at timestamp,
     created_at timestamp,
-    primary key (user_id, item_id, user_item_id)
+    primary key (user_id, item_id)
 );
 
 -- todo list

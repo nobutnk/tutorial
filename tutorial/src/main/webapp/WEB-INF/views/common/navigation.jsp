@@ -10,7 +10,8 @@
             <li><a href="${pageContext.request.contextPath}/todo/list">Todo List</a></li>
             <li><a href="${pageContext.request.contextPath}/todo/create?form">Add Todo</a></li>
             <li><a href="${pageContext.request.contextPath}">Shop Page</a></li>
-            <li><a href="${pageContext.request.contextPath}/orderitem/list">OrderItem List</a></li>
+            <li><a href="${pageContext.request.contextPath}/item/">Item</a></li>
+            <li><a href="${pageContext.request.contextPath}/cart/">Cart</a></li>
         </ul>
         <!-- 4.ボタン -->
         <button type="button" class="btn btn-default navbar-btn">

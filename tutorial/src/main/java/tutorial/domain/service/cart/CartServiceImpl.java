@@ -1,7 +1,5 @@
 package tutorial.domain.service.cart;
 
-import java.util.Date;
-
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -21,12 +19,12 @@ public class CartServiceImpl implements CartService {
     @Override
     public Cart addCartItem(Cart cart, CartItem cartItem) {
         
-        Date createdAt = new Date();
-        
-        cartItem.setCreatedAt(createdAt);
-        cartItem.setUpdatedAt(createdAt);
-        
-        cartRepository.addItem(cartItem);
+//        Date createdAt = new Date();
+//        
+//        cartItem.setCreatedAt(createdAt);
+//        cartItem.setUpdatedAt(createdAt);
+//        
+//        cartRepository.addItem(cartItem);
         cart.addItem(cartItem);
         
         return cart;
@@ -38,6 +36,12 @@ public class CartServiceImpl implements CartService {
         cartRepository.deleteItem(cartItem);
         cart.addItem(cartItem);
         
+        return cart;
+    }
+
+    @Override
+    public Cart saveCart(Cart cart) {
+        // TODO Auto-generated method stub
         return cart;
     }
 

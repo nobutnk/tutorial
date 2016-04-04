@@ -9,27 +9,15 @@ public class CartItem implements Serializable {
     
     private String userId;
     
-    private String itemId;
+    private String id;
     
-    private Integer userItemId;
+    private String itemCode;
+    
+    private Integer quantity;
     
     private Date updatedAt;
     
     private Date createdAt;
-
-    /**
-     * @return the itemId
-     */
-    public String getItemId() {
-        return itemId;
-    }
-
-    /**
-     * @param itemId the itemId to set
-     */
-    public void setItemId(String itemId) {
-        this.itemId = itemId;
-    }
 
     /**
      * @return the userId
@@ -43,20 +31,6 @@ public class CartItem implements Serializable {
      */
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    /**
-     * @return the userItemId
-     */
-    public Integer getUserItemId() {
-        return userItemId;
-    }
-
-    /**
-     * @param userItemId the userItemId to set
-     */
-    public void setUserItemId(Integer userItemId) {
-        this.userItemId = userItemId;
     }
 
     /**
@@ -85,6 +59,48 @@ public class CartItem implements Serializable {
      */
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    /**
+     * @return the itemCode
+     */
+    public String getItemCode() {
+        return itemCode;
+    }
+
+    /**
+     * @param itemCode the itemCode to set
+     */
+    public void setItemCode(String itemCode) {
+        this.itemCode = itemCode;
+    }
+
+    /**
+     * @return the quantity
+     */
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    /**
+     * @param quantity the quantity to set
+     */
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
     }
 
 }
