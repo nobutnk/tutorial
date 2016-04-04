@@ -7,8 +7,9 @@
 
     <!-- (2) -->
     <resultMap id="cartResultMap" type="CartItem">
+        <id property="cartId" column="cart_id" />
         <id property="userId" column="user_id" />
-        <result property="id" column="item_id" />
+        <id property="itemId" column="item_id" />
         <result property="itemCode" column="item_code" />
         <result property="quantity" column="quantity" />
         <result property="updatedAt" column="updated_at" />
@@ -18,6 +19,7 @@
     <select id="findAll" resultMap="cartResultMap" parameterType="String">
     <![CDATA[
         SELECT
+            cart_id,
             user_id,
             item_id,
             item_code,
@@ -33,10 +35,25 @@
     ]]>
     </select>
     
+    <select id="getCartId" resultType="Integer">
+    <![CDATA[
+        SELECT
+            cart_seq.nextval
+    ]]>
+    </select>
+    
+    <select id="getCartItemId" resultType="Integer">
+    <![CDATA[
+        SELECT
+            cart_item_seq.nextval
+    ]]>
+    </select>
+    
     <insert id="addItem" parameterType="CartItem">
     <![CDATA[
         INSERT INTO cart
         (
+            cart_id,
             user_id,
             item_id,
             item_code,
@@ -46,8 +63,9 @@
         )
         VALUES
         (
+            #{cartId},
             #{userId},
-            #{id},
+            #{itemId},
             #{itemCode},
             #{updatedAt},
             #{createdAt}
@@ -64,7 +82,7 @@
         WHERE
             user_id = #{userId}
         AND
-            item_id = #{id}
+            item_id = #{itemId}
         AND
             updated_at = #{updatedAt}
     ]]>
@@ -76,7 +94,7 @@
         WHERE
             user_id = #{userId}
         AND
-            item_id = #{id}
+            item_id = #{itemId}
         AND
             updated_at = #{updatedAt}
     ]]>

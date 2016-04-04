@@ -29,7 +29,7 @@ increment by 1
 start with 1;
 
 create table if not exists item(
-    item_id varchar(36) primary key,
+    item_code varchar(36) primary key,
     item_name varchar(30),
     item_category varchar(2),
     finished boolean, 
@@ -53,14 +53,19 @@ create sequence if not exists cart_seq
 increment by 1
 start with 1;
 
+create sequence if not exists cart_item_seq
+increment by 1
+start with 1;
+
 create table if not exists cart(
+    cart_id integer not null,
     user_id varchar(36) not null,
-    item_id varchar(30) not null,
+    item_id integer not null,
     item_code varchar(30) not null,
     quantity integer not null,
     updated_at timestamp,
     created_at timestamp,
-    primary key (user_id, item_id)
+    primary key (cart_id, user_id, item_id, item_code)
 );
 
 -- todo list
@@ -78,11 +83,11 @@ insert into todo_category (todo_category_id, todo_category_name, updated_at, cre
 insert into todo_category (todo_category_id, todo_category_name, updated_at, created_at) values (todo_category_seq.nextval, 'others', current_timestamp, current_timestamp);
 
 -- item list
-insert into item (item_id, item_name, item_category, finished, updated_at, created_at) values (item_seq.nextval, 'item_1', '1', false, current_timestamp, current_timestamp);
-insert into item (item_id, item_name, item_category, finished, updated_at, created_at) values (item_seq.nextval, 'item_2', '2', false, current_timestamp, current_timestamp);
-insert into item (item_id, item_name, item_category, finished, updated_at, created_at) values (item_seq.nextval, 'item_3', '3', false, current_timestamp, current_timestamp);
-insert into item (item_id, item_name, item_category, finished, updated_at, created_at) values (item_seq.nextval, 'item_4', '2', false, current_timestamp, current_timestamp);
-insert into item (item_id, item_name, item_category, finished, updated_at, created_at) values (item_seq.nextval, 'item_5', '3', false, current_timestamp, current_timestamp);
+insert into item (item_code, item_name, item_category, finished, updated_at, created_at) values (item_seq.nextval, 'item_1', '1', false, current_timestamp, current_timestamp);
+insert into item (item_code, item_name, item_category, finished, updated_at, created_at) values (item_seq.nextval, 'item_2', '2', false, current_timestamp, current_timestamp);
+insert into item (item_code, item_name, item_category, finished, updated_at, created_at) values (item_seq.nextval, 'item_3', '3', false, current_timestamp, current_timestamp);
+insert into item (item_code, item_name, item_category, finished, updated_at, created_at) values (item_seq.nextval, 'item_4', '2', false, current_timestamp, current_timestamp);
+insert into item (item_code, item_name, item_category, finished, updated_at, created_at) values (item_seq.nextval, 'item_5', '3', false, current_timestamp, current_timestamp);
 
 -- item category
 insert into item_category (item_category_id, item_category_name, updated_at, created_at) values (item_category_seq.nextval, 'books', current_timestamp, current_timestamp);

@@ -10,7 +10,7 @@ public class Cart implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
-    private String id;
+    private Integer cartId;
     
     List<CartItem> cartItems = new ArrayList<CartItem>();
     
@@ -35,16 +35,16 @@ public class Cart implements Serializable {
     }
 
     /**
-     * @return the id
+     * @return the cartId
      */
-    public String getId() {
-        return id;
+    public Integer getCartId() {
+        return cartId;
     }
 
     /**
-     * @param id the id to set
+     * @param cartId the cartId to set
      */
-    public void setId(String id) {
-        this.id = id;
+    public void setCartId(Integer cartId) {
+        this.cartId = cartId;
     }
 }

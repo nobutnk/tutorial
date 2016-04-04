@@ -9,7 +9,7 @@ public class CartItem implements Serializable {
     
     private String userId;
     
-    private String id;
+    private Integer itemId;
     
     private String itemCode;
     
@@ -90,17 +90,17 @@ public class CartItem implements Serializable {
     }
 
     /**
-     * @return the id
+     * @return the itemId
      */
-    public String getId() {
-        return id;
+    public Integer getItemId() {
+        return itemId;
     }
 
     /**
-     * @param id the id to set
+     * @param itemId the itemId to set
      */
-    public void setId(String id) {
-        this.id = id;
+    public void setItemId(Integer itemId) {
+        this.itemId = itemId;
     }
 
 }

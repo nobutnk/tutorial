@@ -5,8 +5,6 @@ import java.util.Iterator;
 import javax.inject.Inject;
 
 import org.dozer.Mapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,9 +20,6 @@ import tutorial.domain.service.cart.CartService;
 @Controller
 @RequestMapping("cart")
 public class CartController {
-    
-    private static final Logger logger = LoggerFactory
-            .getLogger(CartController.class);
     
     @Inject
     Mapper beanMapper;

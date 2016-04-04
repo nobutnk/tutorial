@@ -21,7 +21,7 @@
         </c:when>
         <c:otherwise>
             CART ID :
-            ${f:h(cart.id)}
+            ${f:h(cart.cartId)}
             <form:form modelAttribute="cartForm">
                 <table class="table table-hover">
                     <thead>
@@ -36,7 +36,7 @@
                             items="${cart.cartItems}"
                             varStatus="rowStatus">
                             <tr>
-                                <td>${f:h(item.id)}</td>
+                                <td>${f:h(item.itemId)}</td>
                                 <td>${f:h(item.itemCode)}</td>
                                 <td>
                                     <form:input
