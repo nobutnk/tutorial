@@ -12,6 +12,8 @@ public class Cart implements Serializable {
     
     private Integer cartId;
     
+    private String userId = "00000001";
+    
     List<CartItem> cartItems = new ArrayList<CartItem>();
     
     public Integer getCount() {
@@ -46,5 +48,19 @@ public class Cart implements Serializable {
      */
     public void setCartId(Integer cartId) {
         this.cartId = cartId;
+    }
+
+    /**
+     * @return the userId
+     */
+    public String getUserId() {
+        return userId;
+    }
+
+    /**
+     * @param userId the userId to set
+     */
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

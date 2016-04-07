@@ -12,10 +12,10 @@
 <body>
 <div class="container-fluid" id="wrapper">
 <jsp:include page="/WEB-INF/views/common/navigation.jsp" />
-
+    
     <h1>Order Complete</h1>
     ORDER ID :
-    ${f:h(order.id)}
+    ${f:h(order.orderId)}
     <table border="1">
         <thead>
             <tr>
@@ -28,7 +28,7 @@
             <c:forEach var="item" items="${order.orderItems}"
                 varStatus="rowStatus">
                 <tr>
-                    <td>${f:h(item.id)}</td>
+                    <td>${f:h(item.itemId)}</td>
                     <td>${f:h(item.itemCode)}</td>
                     <td>${f:h(item.quantity)}</td>
                 </tr>

@@ -7,28 +7,28 @@ public class CartItemForm implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
-    private String id;
+    private Integer itemId;
 
     private String itemCode;
     
-    private String quantity;
+    private Integer quantity;
     
     private Date updatedAt;
     
     private Date createdAt;
 
     /**
-     * @return the id
+     * @return the itemId
      */
-    public String getId() {
-        return id;
+    public Integer getItemId() {
+        return itemId;
     }
 
     /**
-     * @param id the id to set
+     * @param itemId the itemId to set
      */
-    public void setId(String id) {
-        this.id = id;
+    public void setItemId(Integer itemId) {
+        this.itemId = itemId;
     }
 
     /**
@@ -48,14 +48,14 @@ public class CartItemForm implements Serializable {
     /**
      * @return the quantity
      */
-    public String getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
     /**
      * @param quantity the quantity to set
      */
-    public void setQuantity(String quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 

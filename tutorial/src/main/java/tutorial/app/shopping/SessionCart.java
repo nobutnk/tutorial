@@ -25,7 +25,7 @@ public class SessionCart implements Serializable {
         this.cart = cart;
     }
 
-    public void clearCart() { // (2)
+    public void clearCart() {
         cart.clearCart();
     }
 }

@@ -19,9 +19,14 @@ public class CartServiceImpl implements CartService {
     @Override
     public Cart addCartItem(Cart cart, CartItem cartItem) {
         
+        cart.setUserId("00000001");
+        
         int cartId;
         if (cart.getCartId() == null) {
             cartId = cartRepository.getCartId();
+            cartItem.setCartId(cartId);
+            cartItem.setUserId(cart.getUserId());
+            cartRepository.addCart(cartItem);
             cart.setCartId(cartId);
         }
         

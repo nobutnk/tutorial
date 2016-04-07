@@ -60,12 +60,47 @@ start with 1;
 create table if not exists cart(
     cart_id integer not null,
     user_id varchar(36) not null,
+    updated_at timestamp,
+    created_at timestamp,
+    primary key (cart_id, user_id)
+);
+
+create table if not exists cart_item(
+    cart_id integer not null,
+    user_id varchar(36) not null,
     item_id integer not null,
     item_code varchar(30) not null,
     quantity integer not null,
     updated_at timestamp,
     created_at timestamp,
     primary key (cart_id, user_id, item_id, item_code)
+);
+
+create sequence if not exists order_seq
+increment by 1
+start with 1;
+
+create sequence if not exists order_item_seq
+increment by 1
+start with 1;
+
+create table if not exists orders(
+    order_id integer not null,
+    user_id varchar(36) not null,
+    updated_at timestamp,
+    created_at timestamp,
+    primary key (order_id, user_id)
+);
+
+create table if not exists order_items(
+    order_id integer not null,
+    user_id varchar(36) not null,
+    item_id integer not null,
+    item_code varchar(30) not null,
+    quantity integer not null,
+    updated_at timestamp,
+    created_at timestamp,
+    primary key (order_id, user_id, item_id, item_code)
 );
 
 -- todo list

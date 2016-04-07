@@ -27,7 +27,7 @@
             <c:forEach var="item" items="${cart.cartItems}"
                 varStatus="rowStatus">
                 <tr>
-                    <td>${f:h(item.id)}</td>
+                    <td>${f:h(item.itemId)}</td>
                     <td>${f:h(item.itemCode)}</td>
                     <td>${f:h(item.quantity)}</td>
                 </tr>

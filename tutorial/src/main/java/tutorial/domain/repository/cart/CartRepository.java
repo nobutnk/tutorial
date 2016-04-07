@@ -12,6 +12,8 @@ public interface CartRepository {
     
     int getCartItemId();
     
+    void addCart(CartItem cartItem);
+    
     void addItem(CartItem cartItem);
     
     int updateItem(CartItem cartItem);

@@ -3,13 +3,13 @@ package tutorial.domain.model;
 import java.io.Serializable;
 import java.util.Date;
 
-public class CartItem implements Serializable {
+public class OrderItem implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
-    private Integer cartId;
-    
     private String userId;
+    
+    private Integer orderId;
     
     private Integer itemId;
     
@@ -106,17 +106,17 @@ public class CartItem implements Serializable {
     }
 
     /**
-     * @return the cartId
+     * @return the orderId
      */
-    public Integer getCartId() {
-        return cartId;
+    public Integer getOrderId() {
+        return orderId;
     }
 
     /**
-     * @param cartId the cartId to set
+     * @param orderId the orderId to set
      */
-    public void setCartId(Integer cartId) {
-        this.cartId = cartId;
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
     }
 
 }
