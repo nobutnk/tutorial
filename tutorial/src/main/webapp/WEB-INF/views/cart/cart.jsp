@@ -49,7 +49,7 @@
                     </tbody>
                 </table>
                 <%-- (17) --%>
-                <form:button name="edit">Save</form:button>
+                <form:button class="btn btn-info" name="edit">Save</form:button>
             </form:form>
         </c:otherwise>
     </c:choose>

@@ -16,7 +16,7 @@
     <h1>Order Complete</h1>
     ORDER ID :
     ${f:h(order.orderId)}
-    <table border="1">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>ID</th>

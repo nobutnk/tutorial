@@ -15,7 +15,7 @@
 
     <spring:eval var="cart" expression="@sessionCart.cart" />
     <h1>Order</h1>
-    <table border="1">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>ID</th>
@@ -36,7 +36,7 @@
     </table>
     <form:form modelAttribute="orderForm">
         <%-- (19) --%>
-        <form:button>Order</form:button>
+        <form:button class="btn btn-info">Order</form:button>
     </form:form>
     <div>
         <a href="${pageContext.request.contextPath}/cart">Back to Cart</a>

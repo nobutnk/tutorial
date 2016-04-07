@@ -56,7 +56,7 @@
                 <form:input path="todoDetail" class="form-control"/>
                 <form:errors path="todoDetail" cssClass="text-danger"/>
             </div>
-            <form:button>Create Todo</form:button>
+            <form:button class="btn btn-info">Create Todo</form:button>
         </form:form>
         </div>
     </div>

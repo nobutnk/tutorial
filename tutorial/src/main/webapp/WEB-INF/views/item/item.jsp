@@ -33,7 +33,7 @@
             <form:errors path="quantity" cssClass="text-danger"/>
         </div>
         
-        <form:button>Add</form:button>
+        <form:button class="btn btn-info">Add Cart</form:button>
         
     </form:form>
     </div>
