@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="tutorial.domain.repository.auth.AccountRepository">
+
+    <resultMap id="accountResultMap" type="Account">
+        <id property="username" column="username" />
+        <id property="password" column="password" />
+        <id property="admin" column="admin" />
+        <result property="enabled" column="enabled" />
+        <result property="updatedAt" column="updated_at" />
+        <result property="createdAt" column="created_at" />
+    </resultMap>
+
+    <select id="findOneByUsername" resultMap="accountResultMap" parameterType="String">
+    <![CDATA[
+        SELECT
+            username,
+            password,
+            admin,
+            enabled
+        FROM
+            account
+        WHERE
+            username = #{username}
+    ]]>
+    </select>
+    
+</mapper>

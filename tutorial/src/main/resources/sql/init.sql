@@ -1,3 +1,12 @@
+create table if not exists account(
+    username varchar(36) primary key,
+    password varchar(256),
+    admin boolean,
+    enabled boolean,
+    updated_at timestamp,
+    created_at timestamp
+);
+
 create sequence if not exists todo_seq
 increment by 1
 start with 1;
