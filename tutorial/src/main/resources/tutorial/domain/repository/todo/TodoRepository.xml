@@ -2,10 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- (1) -->
 <mapper namespace="tutorial.domain.repository.todo.TodoRepository">
 
-    <!-- (2) -->
     <resultMap id="todoResultMap" type="Todo">
         <id property="todoId" column="todo_id" />
         <result property="todoTitle" column="todo_title" />
@@ -16,7 +14,6 @@
         <result property="createdAt" column="created_at" />
     </resultMap>
 
-    <!-- (3) -->
     <select id="findOne" parameterType="String" resultMap="todoResultMap">
     <![CDATA[
         SELECT

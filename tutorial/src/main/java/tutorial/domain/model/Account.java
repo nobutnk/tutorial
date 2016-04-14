@@ -1,6 +1,7 @@
 package tutorial.domain.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Account implements Serializable {
 
@@ -13,6 +14,10 @@ public class Account implements Serializable {
     private boolean enabled;
     
     private boolean admin;
+    
+    private Date updatedAt;
+    
+    private Date createdAt;
 
     /**
      * @return the username
@@ -68,6 +73,34 @@ public class Account implements Serializable {
      */
     public void setAdmin(boolean admin) {
         this.admin = admin;
+    }
+
+    /**
+     * @return the updatedAt
+     */
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    /**
+     * @param updatedAt the updatedAt to set
+     */
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    /**
+     * @return the createdAt
+     */
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    /**
+     * @param createdAt the createdAt to set
+     */
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
 }

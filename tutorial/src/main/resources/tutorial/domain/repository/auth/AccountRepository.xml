@@ -27,4 +27,28 @@
     ]]>
     </select>
     
+    <insert id="create" parameterType="Account">
+    <![CDATA[
+        INSERT INTO
+            account
+            (
+                username,
+                password,
+                admin,
+                enabled,
+                updated_at,
+                created_at
+            )
+        VALUES
+            (
+                #{username},
+                #{password},
+                #{admin},
+                #{enabled},
+                #{updatedAt},
+                #{createdAt}
+            )
+    ]]>
+    </insert>
+    
 </mapper>

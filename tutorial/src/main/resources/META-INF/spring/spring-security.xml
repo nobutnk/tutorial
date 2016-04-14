@@ -14,7 +14,8 @@
             login-processing-url="/authenticate"
             authentication-failure-url="/login/loginForm?error" />
         <sec:intercept-url pattern="/login/**" access="permitAll"/>
-        <sec:intercept-url pattern="/**" access="isAuthenticated()"/>
+        <sec:intercept-url pattern="/signup/**" access="permitAll"/>
+        <sec:intercept-url pattern="/**" access="isAuthenticated()" />
         <sec:logout/>
         <sec:access-denied-handler ref="accessDeniedHandler"/>
         <sec:custom-filter ref="userIdMDCPutFilter" after="ANONYMOUS_FILTER"/>

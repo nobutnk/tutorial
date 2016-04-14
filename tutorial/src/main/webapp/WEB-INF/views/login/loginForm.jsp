@@ -27,5 +27,10 @@
     <form:button class="btn btn-info">Login</form:button>
 
 </form:form>
+
+<div>
+    <a href="${pageContext.request.contextPath}/signup?form">Signup</a>
+</div>
+
 </div>
 </div>

@@ -28,7 +28,7 @@ public class AccountUserDetailsService implements UserDetailsService {
 
         try {
             Account account = accountSharedService.findOne(username);
-            return (UserDetails) new AccountUserDetails(account, getAuthorities(account));
+            return new AccountUserDetails(account, getAuthorities(account));
         } catch (ResourceNotFoundException e) {
             throw new UsernameNotFoundException("user not found", e);
         }
