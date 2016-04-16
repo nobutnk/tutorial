@@ -93,6 +93,17 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <!-- for BotDetect -->
+    <servlet>
+        <servlet-name>BotDetect Captcha</servlet-name>
+        <servlet-class>botdetect.web.http.CaptchaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BotDetect Captcha</servlet-name>
+        <url-pattern>/botdetectcaptcha</url-pattern>
+    </servlet-mapping>
+    <!-- for BotDetect -->
+
     <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>

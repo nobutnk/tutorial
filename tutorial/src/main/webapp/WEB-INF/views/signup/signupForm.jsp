@@ -24,6 +24,18 @@
         <form:password id="confirmPassword" path="confirmPassword" class="form-control" />
         <form:errors path="confirmPassword" cssClass="text-danger"/>
     </div>
+    
+    <div class="form-group">
+        <botDetect:captcha
+            id="springFormCaptcha"
+            codeLength="3"
+            imageWidth="150"
+            imageStyles="graffiti, graffiti2"/>
+        <form:input id="captchaCodeText" 
+                path="captchaCodeText" 
+                value="${message.captchaCodeTextBox}"/>
+        <form:errors path="captchaCodeText" cssClass="text-danger"/>
+    </div>
    
     <form:button class="btn btn-info">SignUp</form:button>
 

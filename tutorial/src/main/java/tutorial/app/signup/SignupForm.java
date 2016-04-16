@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import tutorial.app.common.validator.annotation.BotDetectCaptcha;
+
 public class SignupForm implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -18,6 +20,9 @@ public class SignupForm implements Serializable {
     
     @NotNull
     private String confirmPassword;
+    
+    @BotDetectCaptcha
+    private String captchaCodeText;
 
     /**
      * @return the email
@@ -59,6 +64,20 @@ public class SignupForm implements Serializable {
      */
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    /**
+     * @return the captchaCodeText
+     */
+    public String getCaptchaCodeText() {
+        return captchaCodeText;
+    }
+
+    /**
+     * @param captchaCodeText the captchaCodeText to set
+     */
+    public void setCaptchaCodeText(String captchaCodeText) {
+        this.captchaCodeText = captchaCodeText;
     }
 
 }

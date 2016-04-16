@@ -47,6 +47,11 @@
       <name>Maru Project Maven Repository</name>
       <url>http://maru.sourceforge.jp/mvn/</url>
     </repository>
+    <repository>
+      <id>captcha</id>
+      <name>BotDetect Captcha Repository</name>
+      <url>https://git.captcha.com/maven.git/blob_plain/HEAD:/</url>
+    </repository>
   </repositories>
 
   <build>
@@ -89,8 +94,8 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.1</version>
           <configuration>
-            <source>1.8</source> 
-            <target>1.8</target> 
+            <source>1.8</source>
+            <target>1.8</target>
           </configuration>
         </plugin>
       </plugins>
@@ -177,6 +182,11 @@
       <groupId>org.apache.tomcat.embed</groupId>
       <artifactId>tomcat-embed-el</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.captcha</groupId>
+      <artifactId>botdetect</artifactId>
+      <version>4.0.alpha4</version>
     </dependency>
 
   </dependencies>
