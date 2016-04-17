@@ -102,7 +102,17 @@
         <servlet-name>BotDetect Captcha</servlet-name>
         <url-pattern>/botdetectcaptcha</url-pattern>
     </servlet-mapping>
-    <!-- for BotDetect -->
+    <!-- /for BotDetect -->
+    <!-- for JCaptcha -->
+    <servlet>
+        <servlet-name>jcaptcha</servlet-name>
+        <servlet-class>com.octo.captcha.module.servlet.image.SimpleImageCaptchaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>jcaptcha</servlet-name>
+        <url-pattern>/jcaptcha</url-pattern>
+    </servlet-mapping>
+    <!-- /for JCaptcha -->
 
     <jsp-config>
         <jsp-property-group>
