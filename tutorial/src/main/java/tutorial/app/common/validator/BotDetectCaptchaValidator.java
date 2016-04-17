@@ -13,10 +13,15 @@ import tutorial.app.common.validator.annotation.BotDetectCaptcha;
 
 public class BotDetectCaptchaValidator implements ConstraintValidator<BotDetectCaptcha, String> {
 
+    private String imgTextName;
+    private String verified;
+    private String message;
+    
     @Override
     public void initialize(BotDetectCaptcha constraintAnnotation) {
-        // TODO Auto-generated method stub
-
+        imgTextName = constraintAnnotation.imgTextName();
+        verified = constraintAnnotation.verified();
+        message = constraintAnnotation.message();
     }
 
     @Override
@@ -28,24 +33,34 @@ public class BotDetectCaptchaValidator implements ConstraintValidator<BotDetectC
         if (value == null) {
             return true;
         }
-        return isCaptchaValid(request, value);
+        
+        boolean matched = isCaptchaValid(request, value);
+        if (matched) {
+            return true;
+        } else {
+            context.disableDefaultConstraintViolation();
+            context.buildConstraintViolationWithTemplate(message)
+                    .addConstraintViolation();
+            
+            return false;
+        }
     }
 
-    static boolean isCaptchaValid(HttpServletRequest request, String value) {
+    public boolean isCaptchaValid(HttpServletRequest request, String value) {
         HttpSession session = request.getSession(false);
 
-        if (session != null && session.getAttribute("captchaVerified") != null) {
+        if (session != null && session.getAttribute(verified) != null) {
             return true;
         }
 
         // validate the Captcha to check we're not dealing with a bot
-        Captcha captcha = Captcha.load(request, "springFormCaptcha");
+        Captcha captcha = Captcha.load(request, imgTextName);
         boolean isHuman = captcha.validate(request, value);
         if (isHuman) {
             if (session == null) {
                 session = request.getSession(true);
             }
-            session.setAttribute("captchaVerified", true);
+            session.setAttribute(verified, true);
             return true;
         } else {
             return false;

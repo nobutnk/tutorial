@@ -27,13 +27,14 @@
     
     <div class="form-group">
         <botDetect:captcha
-            id="springFormCaptcha"
-            codeLength="3"
-            imageWidth="150"
+            id="botDetectCaptcha"
+            codeLength="5"
+            imageWidth="300"
+            reloadEnabled="true"
+            soundEnabled="false"
             imageStyles="graffiti, graffiti2"/>
         <form:input id="captchaCodeText" 
-                path="captchaCodeText" 
-                value="${message.captchaCodeTextBox}"/>
+                path="captchaCodeText" />
         <form:errors path="captchaCodeText" cssClass="text-danger"/>
     </div>
    

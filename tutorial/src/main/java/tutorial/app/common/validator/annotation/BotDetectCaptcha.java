@@ -28,8 +28,16 @@ public @interface BotDetectCaptcha {
 
     Class<? extends Payload>[] payload() default {};
     
-    String formName() default "botDetectCaptcha";
+    /**
+     * value in botDetect:captcha@id attribute.
+     * @return captcha text name.
+     */
+    String imgTextName() default "botDetectCaptcha";
     
+    /**
+     * captcha verified attribute name in session.
+     * @return captcha verified attribute name in session.
+     */
     String verified() default "captchaVerified";
 
     @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
