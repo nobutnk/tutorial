@@ -9,9 +9,10 @@ create table if not exists account(
 
 create table if not exists article(
     article_id varchar(36) primary key,
-    file blob,
-    description varchar(100),
-    content_type varchar(100),
+    file blob not null,
+    description varchar(100) not null,
+    filename varchar(256) not null,
+    content_type varchar(100) not null,
     updated_at timestamp,
     created_at timestamp
 );

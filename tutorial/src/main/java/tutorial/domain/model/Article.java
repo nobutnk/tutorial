@@ -14,6 +14,8 @@ public class Article implements Serializable {
     
     private String description;
     
+    private String filename;
+    
     private String contentType;
     
     private Date createdAt;
@@ -91,6 +93,18 @@ public class Article implements Serializable {
      */
     public void setContentType(String contentType) {
         this.contentType = contentType;
+    }
+    /**
+     * @return the filename
+     */
+    public String getFilename() {
+        return filename;
+    }
+    /**
+     * @param filename the filename to set
+     */
+    public void setFilename(String filename) {
+        this.filename = filename;
     }
 
 }

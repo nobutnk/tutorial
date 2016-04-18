@@ -14,14 +14,26 @@ import tutorial.app.common.validator.annotation.UploadFileRequired;
 public class ArticleForm implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
+    public static interface ArticleDelete {
+    };
+    
+    public static interface ArticleDownload {
+    };
+    
+    public static interface ArticleCreate {
+    };
+    
+    @NotNull(groups = { ArticleDownload.class, ArticleDelete.class })
+    private String articleId;
 
-    @UploadFileRequired
-    @UploadFileNotEmpty
-    @UploadFileMaxSize
+    @UploadFileRequired(groups = { ArticleCreate.class })
+    @UploadFileNotEmpty(groups = { ArticleCreate.class })
+    @UploadFileMaxSize(groups = { ArticleCreate.class })
     private MultipartFile file;
 
-    @NotNull
-    @Size(min = 0, max = 100)
+    @NotNull(groups = { ArticleCreate.class })
+    @Size(min = 0, max = 100, groups = { ArticleCreate.class })
     private String description;
 
     /**
@@ -50,5 +62,19 @@ public class ArticleForm implements Serializable {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * @return the articleId
+     */
+    public String getArticleId() {
+        return articleId;
+    }
+
+    /**
+     * @param articleId the articleId to set
+     */
+    public void setArticleId(String articleId) {
+        this.articleId = articleId;
     }
 }

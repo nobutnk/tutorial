@@ -1,8 +1,10 @@
 package tutorial.app.article;
 
 import java.io.IOException;
+import java.util.Collection;
 
 import javax.inject.Inject;
+import javax.validation.groups.Default;
 
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,6 +21,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.terasoluna.gfw.common.exception.SystemException;
 import org.terasoluna.gfw.common.message.ResultMessages;
 
+import tutorial.app.article.ArticleForm.ArticleCreate;
+import tutorial.app.article.ArticleForm.ArticleDownload;
 import tutorial.domain.model.Article;
 import tutorial.domain.service.article.ArticleService;
 
@@ -39,6 +43,22 @@ public class ArticleController {
     public ArticleForm setForm() {
         return new ArticleForm();
     }
+    
+    @RequestMapping(value = "list")
+    public String list(Model model) {
+        Collection<Article> articles = articleService.findAll();
+        model.addAttribute("articles", articles);
+        return "article/list";
+    }
+    
+    @RequestMapping(value = "download", method = RequestMethod.GET)
+    public String listDownload(
+            @Validated({ Default.class, ArticleDownload.class }) ArticleForm form,
+            Model model) {
+        Article article = articleService.findOne(form.getArticleId());
+        model.addAttribute("article", article);
+        return "articleBinaryView";
+    }
 
     @RequestMapping(value = "upload", method = RequestMethod.GET, params = "form")
     public String uploadForm(Model model) {
@@ -47,7 +67,7 @@ public class ArticleController {
 
     @RequestMapping(value = "upload", method = RequestMethod.POST)
     public String upload(
-            @Validated ArticleForm form,
+            @Validated({ Default.class, ArticleCreate.class }) ArticleForm form,
             BindingResult result,
             Model model, RedirectAttributes redirectAttributes) {
 
@@ -77,6 +97,7 @@ public class ArticleController {
         try {
             Article article = new Article();
             article.setDescription(form.getDescription());
+            article.setFilename(uploadFile.getOriginalFilename());
             article.setContentType(uploadFile.getContentType());
             article.setFile(uploadFile.getInputStream());
             articleService.create(article);

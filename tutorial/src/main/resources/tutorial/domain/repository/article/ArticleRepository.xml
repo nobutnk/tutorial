@@ -8,6 +8,7 @@
         <id property="articleId" column="article_id" />
         <result property="file" column="file" jdbcType="BLOB" typeHandler="tutorial.infra.mybatis.typehandler.BlobInputStreamTypeHandler"/>
         <result property="description" column="description" />
+        <result property="filename" column="filename" />
         <result property="contentType" column="content_type" />
         <result property="updatedAt" column="updated_at" />
         <result property="createdAt" column="created_at" />
@@ -19,6 +20,7 @@
             article_id,
             file,
             description,
+            filename,
             content_type,
             updated_at,
             created_at
@@ -34,9 +36,9 @@
     <![CDATA[
         SELECT
             article_id,
-            file,
             description,
             content_type,
+            filename,
             updated_at,
             created_at
         FROM
@@ -54,6 +56,7 @@
             article_id,
             file,
             description,
+            filename,
             content_type,
             updated_at,
             created_at
@@ -63,6 +66,7 @@
             #{articleId},
             #{file},
             #{description},
+            #{filename},
             #{contentType},
             #{updatedAt},
             #{createdAt}
