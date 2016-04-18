@@ -12,6 +12,7 @@
             <li><a href="${pageContext.request.contextPath}">Shop Page</a></li>
             <li><a href="${pageContext.request.contextPath}/item/">Item</a></li>
             <li><a href="${pageContext.request.contextPath}/cart/">Cart</a></li>
+            <li><a href="${pageContext.request.contextPath}/article/upload?form">Article</a></li>
         </ul>
         <!-- 4.ボタン -->
         <button type="button" class="btn btn-default navbar-btn">
