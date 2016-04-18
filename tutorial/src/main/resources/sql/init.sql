@@ -7,6 +7,15 @@ create table if not exists account(
     created_at timestamp
 );
 
+create table if not exists article(
+    article_id varchar(36) primary key,
+    file blob,
+    description varchar(100),
+    content_type varchar(100),
+    updated_at timestamp,
+    created_at timestamp
+);
+
 create sequence if not exists todo_seq
 increment by 1
 start with 1;
