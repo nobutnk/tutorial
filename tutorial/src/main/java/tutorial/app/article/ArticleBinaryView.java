@@ -29,7 +29,7 @@ public class ArticleBinaryView extends AbstractFileDownloadView {
         Article article = (Article) model.get("article");
         response.setContentType(article.getContentType());
         response.setHeader("Content-Disposition",
-                "attachment; " + article.getFilename());
+                "attachment; filename=" + article.getFilename());
         
     }
 
