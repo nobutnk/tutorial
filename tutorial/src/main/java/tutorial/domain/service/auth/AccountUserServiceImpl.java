@@ -1,5 +1,7 @@
 package tutorial.domain.service.auth;
 
+import java.util.Date;
+
 import javax.inject.Inject;
 
 import org.springframework.dao.DuplicateKeyException;
@@ -26,7 +28,14 @@ public class AccountUserServiceImpl implements AccountUserService {
     @Override
     public Account create(Account account) {
         String encodedPassword = passwordEncoder.encode(account.getPassword());
+        Date createdAt = new Date();
+        
         account.setPassword(encodedPassword);
+        account.setEnabled(true);
+        account.setAdmin(false);
+        account.setCreatedAt(createdAt);
+        account.setUpdatedAt(createdAt);
+        
         try {
             accountRepository.create(account);
         } catch (DuplicateKeyException e) {

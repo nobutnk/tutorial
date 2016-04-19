@@ -37,12 +37,6 @@
                 path="botDetectCaptchaText" />
         <form:errors path="botDetectCaptchaText" cssClass="text-danger"/>
     </div>
-    <div class="form-group">
-        <div><img src="jcaptcha" alt="captcha"></div>
-        <form:input id="jcaptchaText" 
-                path="jcaptchaText" />
-        <form:errors path="jcaptchaText" cssClass="text-danger"/>
-    </div>
    
     <form:button class="btn btn-info">SignUp</form:button>
 

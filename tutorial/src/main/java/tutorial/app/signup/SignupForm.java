@@ -6,7 +6,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import tutorial.app.common.validator.annotation.BotDetectCaptcha;
-import tutorial.app.common.validator.annotation.Jcaptcha;
 
 public class SignupForm implements Serializable {
 
@@ -24,9 +23,6 @@ public class SignupForm implements Serializable {
     
     @BotDetectCaptcha
     private String botDetectCaptchaText;
-    
-    @Jcaptcha
-    private String jcaptchaText;
 
     /**
      * @return the email
@@ -68,20 +64,6 @@ public class SignupForm implements Serializable {
      */
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
-    }
-
-    /**
-     * @return the jcaptchaText
-     */
-    public String getJcaptchaText() {
-        return jcaptchaText;
-    }
-
-    /**
-     * @param jcaptchaText the jcaptchaText to set
-     */
-    public void setJcaptchaText(String jcaptchaText) {
-        this.jcaptchaText = jcaptchaText;
     }
 
     /**

@@ -76,6 +76,8 @@
     <mvc:tiles-configurer>
         <mvc:definitions location="/WEB-INF/tiles/tiles-definitions.xml" />
     </mvc:tiles-configurer>
+    
+    <mvc:view-controller path="/login" view-name="login/loginForm" />
 
     <bean id="requestDataValueProcessor"
         class="org.terasoluna.gfw.web.mvc.support.CompositeRequestDataValueProcessor">

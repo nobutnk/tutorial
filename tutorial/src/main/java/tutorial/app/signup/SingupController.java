@@ -50,7 +50,7 @@ public class SingupController {
     }
     
     @RequestMapping(method = {RequestMethod.POST})
-    public String login(
+    public String signup(
             @Validated SignupForm signupForm,
             BindingResult result,
             Model model, RedirectAttributes attributes) {
@@ -70,6 +70,6 @@ public class SingupController {
         
         attributes.addFlashAttribute(ResultMessages.success().add(
                 ResultMessage.fromText("Account Created successfully!")));
-        return "redirect:/login/loginForm";
+        return "redirect:/login";
     }
 }

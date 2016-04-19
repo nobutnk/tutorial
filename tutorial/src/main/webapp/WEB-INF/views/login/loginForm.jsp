@@ -9,22 +9,19 @@
 
 <form:form
     action="${pageContext.request.contextPath}/login"
-    method="post"
-    modelAttribute="loginForm">
+    method="post">
 
     <div class="form-group">
        <label for="username">User Name</label>
-       <form:input id="username" path="username" class="form-control" />
-       <form:errors path="username" cssClass="text-danger"/>
+       <input type="text" id="username" name="username" class="form-control" >
     </div>
         
     <div class="form-group">
         <label for="password">Password</label>
-        <form:password id="password" path="password" class="form-control" />
-        <form:errors path="password" cssClass="text-danger"/>
+        <input type="password" id="password" name="password" class="form-control" >
     </div>
    
-    <form:button class="btn btn-info">Login</form:button>
+    <button class="btn btn-info">Login</button>
 
 </form:form>
 
