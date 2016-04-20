@@ -5,9 +5,10 @@
 <mapper namespace="tutorial.domain.repository.auth.AccountRepository">
 
     <resultMap id="accountResultMap" type="Account">
+        <id property="id" column="id" />
         <id property="username" column="username" />
-        <id property="password" column="password" />
-        <id property="admin" column="admin" />
+        <result property="password" column="password" />
+        <result property="admin" column="admin" />
         <result property="enabled" column="enabled" />
         <result property="updatedAt" column="updated_at" />
         <result property="createdAt" column="created_at" />
@@ -16,6 +17,7 @@
     <select id="findOneByUsername" resultMap="accountResultMap" parameterType="String">
     <![CDATA[
         SELECT
+            id,
             username,
             password,
             admin,
@@ -32,6 +34,7 @@
         INSERT INTO
             account
             (
+                id,
                 username,
                 password,
                 admin,
@@ -41,6 +44,7 @@
             )
         VALUES
             (
+                #{id},
                 #{username},
                 #{password},
                 #{admin},
@@ -50,5 +54,12 @@
             )
     ]]>
     </insert>
+    
+    <select id="createAccountId" resultType="Integer">
+    <![CDATA[
+        SELECT
+            account_seq.nextval
+    ]]>
+    </select>
     
 </mapper>

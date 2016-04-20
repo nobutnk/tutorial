@@ -9,5 +9,7 @@ public interface AccountRepository {
     void create(Account account);
     
     int update(Account account);
+    
+    int createUserId();
 
 }

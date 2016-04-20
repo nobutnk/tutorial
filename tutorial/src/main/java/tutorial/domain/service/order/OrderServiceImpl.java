@@ -8,9 +8,12 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.dozer.Mapper;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import tutorial.app.auth.AccountUserDetails;
 import tutorial.app.shopping.Cart;
 import tutorial.domain.model.CartItem;
 import tutorial.domain.model.Order;
@@ -30,12 +33,21 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order saveOrder(Cart cart) {
         
+        Authentication authentication =
+                SecurityContextHolder.getContext().getAuthentication();
+        String userId = null;
+        if (authentication.getPrincipal() instanceof AccountUserDetails) {
+            AccountUserDetails userDetails =
+                    AccountUserDetails.class.cast(authentication.getPrincipal());
+            userId = userDetails.getAccount().getId().toString();
+        }
+        
         int orderId = orderRepository.getOrderId();
         Date createdAt = new Date();
         
         Order order = new Order();
         order.setOrderId(orderId);
-        order.setUserId("00000001");
+        order.setUserId(userId);
         order.setCreatedAt(createdAt);
         order.setUpdatedAt(createdAt);
         

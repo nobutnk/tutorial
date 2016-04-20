@@ -27,9 +27,13 @@ public class AccountUserServiceImpl implements AccountUserService {
 
     @Override
     public Account create(Account account) {
+        
+        Integer id = accountRepository.createUserId();
+        
         String encodedPassword = passwordEncoder.encode(account.getPassword());
         Date createdAt = new Date();
         
+        account.setId(id);
         account.setPassword(encodedPassword);
         account.setEnabled(true);
         account.setAdmin(false);

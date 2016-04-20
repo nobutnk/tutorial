@@ -7,6 +7,8 @@ public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
+    private Integer id;
+    
     private String username;
     
     private String password;
@@ -101,6 +103,20 @@ public class Account implements Serializable {
      */
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    /**
+     * @return the id
+     */
+    public Integer getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Integer id) {
+        this.id = id;
     }
 
 }

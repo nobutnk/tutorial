@@ -1,5 +1,10 @@
+create sequence if not exists account_seq
+increment by 1
+start with 1;
+
 create table if not exists account(
-    username varchar(36) primary key,
+    id varchar(36) primary key,
+    username varchar(36) unique,
     password varchar(256),
     admin boolean,
     enabled boolean,
