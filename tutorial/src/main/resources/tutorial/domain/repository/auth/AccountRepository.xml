@@ -55,7 +55,7 @@
     ]]>
     </insert>
     
-    <select id="createAccountId" resultType="Integer">
+    <select id="createUserId" resultType="Integer">
     <![CDATA[
         SELECT
             account_seq.nextval

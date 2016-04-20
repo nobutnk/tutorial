@@ -16,11 +16,6 @@
         <sec:intercept-url pattern="/login/**" access="permitAll"/>
         <sec:intercept-url pattern="/signup/**" access="permitAll"/>
         <sec:intercept-url pattern="/botdetectcaptcha/**" access="permitAll"/>
-        <sec:intercept-url pattern="/jcaptcha/**" access="permitAll"/>
-        <!-- temporary settings -->
-        <sec:intercept-url pattern="/todo/**" access="permitAll"/>
-        <sec:intercept-url pattern="/article/**" access="permitAll"/>
-        <!-- /temporary settings -->
         <sec:intercept-url pattern="/**" access="isAuthenticated()" />
         <sec:logout/>
         <sec:access-denied-handler ref="accessDeniedHandler"/>
