@@ -7,6 +7,11 @@ import javax.validation.constraints.Size;
 
 import org.terasoluna.gfw.common.codelist.ExistInCodeList;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class TodoForm implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -43,68 +48,5 @@ public class TodoForm implements Serializable {
     
     @NotNull(groups = { TodoFinish.class, TodoUpdate.class, TodoDelete.class })
     private String updatedAt;
-
-    public String getTodoTitle() {
-        return todoTitle;
-    }
-
-    public void setTodoTitle(String todoTitle) {
-        this.todoTitle = todoTitle;
-    }
-
-    /**
-     * @return the todoDetail
-     */
-    public String getTodoDetail() {
-        return todoDetail;
-    }
-
-    /**
-     * @param todoDetail the todoDetail to set
-     */
-    public void setTodoDetail(String todoDetail) {
-        this.todoDetail = todoDetail;
-    }
-
-    /**
-     * @return the updatedAt
-     */
-    public String getUpdatedAt() {
-        return updatedAt;
-    }
-
-    /**
-     * @param updatedAt the updatedAt to set
-     */
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    /**
-     * @return the todoId
-     */
-    public String getTodoId() {
-        return todoId;
-    }
-
-    /**
-     * @param todoId the todoId to set
-     */
-    public void setTodoId(String todoId) {
-        this.todoId = todoId;
-    }
-
-    /**
-     * @return the todoCategory
-     */
-    public String getTodoCategory() {
-        return todoCategory;
-    }
-
-    /**
-     * @param todoCategory the todoCategory to set
-     */
-    public void setTodoCategory(String todoCategory) {
-        this.todoCategory = todoCategory;
-    }
+    
 }

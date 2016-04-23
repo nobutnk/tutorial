@@ -4,8 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Getter;
+import lombok.Setter;
 import tutorial.domain.model.CartItem;
 
+@Setter
+@Getter
 public class Cart implements Serializable {
     
     private static final long serialVersionUID = 1L;
@@ -36,31 +40,4 @@ public class Cart implements Serializable {
         cartItems.clear();
     }
 
-    /**
-     * @return the cartId
-     */
-    public Integer getCartId() {
-        return cartId;
-    }
-
-    /**
-     * @param cartId the cartId to set
-     */
-    public void setCartId(Integer cartId) {
-        this.cartId = cartId;
-    }
-
-    /**
-     * @return the userId
-     */
-    public String getUserId() {
-        return userId;
-    }
-
-    /**
-     * @param userId the userId to set
-     */
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
 }
