@@ -46,6 +46,9 @@ public class TodoForm implements Serializable {
     @Size(min = 1, max = 100, groups = { TodoFinish.class, TodoUpdate.class })
     private String todoDetail;
     
+    @NotNull(groups = { TodoCreate.class, TodoUpdate.class })
+    private String dueDate;
+    
     @NotNull(groups = { TodoFinish.class, TodoUpdate.class, TodoDelete.class })
     private String updatedAt;
     

@@ -41,6 +41,24 @@
             <form:input path="todoDetail" class="form-control" />
             <form:errors path="todoDetail" cssClass="text-danger"/>
         </div>
+        <div class="form-group">
+            <label for="dueDate">DueDate</label>
+            <div class="input-group date" id="datetimepicker">
+                <form:input path="dueDate" class="form-control"/>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+            <form:errors path="dueDate" cssClass="text-danger"/>
+        </div>
+        <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker').datepicker({
+                format: "yyyy-mm-dd",
+                autoclose: true
+            });
+        });
+        </script>
         <form:hidden path="updatedAt" />
         <form:button>Update Todo</form:button>
     </form:form>

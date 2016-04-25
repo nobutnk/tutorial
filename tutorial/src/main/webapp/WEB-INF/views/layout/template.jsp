@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap-3.3.6-dist/css/bootstrap.min.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/jquery/jquery-1.12.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap-datepicker-1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap-datepicker-1/css/bootstrap-datepicker.min.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap-maxlength.js"></script>
 <script type="text/javascript">
 
 </script> <!-- (1) -->

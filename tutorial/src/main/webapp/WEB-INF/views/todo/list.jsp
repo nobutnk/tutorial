@@ -19,6 +19,7 @@
         <th>title</th>
         <th>category</th>
         <th>detail</th>
+        <th>due_date</th>
         <th>finished</th>
         <th>updated_at</th>
         <th>created_at</th>
@@ -44,6 +45,7 @@
         <td>${f:h(todo.todoTitle)}</td>
         <td>${f:h(CL_TODO_CATEGORIES[todo.todoCategory])}</td>
         <td>${f:h(todo.todoDetail)}</td>
+        <td><fmt:formatDate pattern="yyyy/MM/dd" value="${todo.dueDate}" /></td>
         <td>${f:h(todo.finished)}</td>
         <td><fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${todo.updatedAt}" /></td>
         <td><fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${todo.createdAt}" /></td>

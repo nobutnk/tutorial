@@ -31,6 +31,7 @@ create table if not exists todo(
     todo_title varchar(30),
     todo_category varchar(2),
     todo_detail varchar(100),
+    due_date date,
     finished boolean, 
     updated_at timestamp,
     created_at timestamp
@@ -128,12 +129,12 @@ create table if not exists order_items(
 );
 
 -- todo list
-insert into todo (todo_id, todo_title, todo_category, todo_detail, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', '1', 'init_detail', false, current_timestamp, current_timestamp);
-insert into todo (todo_id, todo_title, todo_category, todo_detail, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', '2', 'init_detail', false, current_timestamp, current_timestamp);
-insert into todo (todo_id, todo_title, todo_category, todo_detail, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', '3', 'init_detail', false, current_timestamp, current_timestamp);
-insert into todo (todo_id, todo_title, todo_category, todo_detail, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', '4', 'init_detail', true, current_timestamp, current_timestamp);
-insert into todo (todo_id, todo_title, todo_category, todo_detail, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', '1', 'init_detail', false, current_timestamp, current_timestamp);
-insert into todo (todo_id, todo_title, todo_category, todo_detail, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', '2', 'init_detail', false, current_timestamp, current_timestamp);
+insert into todo (todo_id, todo_title, todo_category, todo_detail, due_date, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', '1', 'init_detail', current_timestamp, false, current_timestamp, current_timestamp);
+insert into todo (todo_id, todo_title, todo_category, todo_detail, due_date, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', '2', 'init_detail', current_timestamp, false, current_timestamp, current_timestamp);
+insert into todo (todo_id, todo_title, todo_category, todo_detail, due_date, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', '3', 'init_detail', current_timestamp, false, current_timestamp, current_timestamp);
+insert into todo (todo_id, todo_title, todo_category, todo_detail, due_date, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', '4', 'init_detail', current_timestamp, true, current_timestamp, current_timestamp);
+insert into todo (todo_id, todo_title, todo_category, todo_detail, due_date, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', '1', 'init_detail', current_timestamp, false, current_timestamp, current_timestamp);
+insert into todo (todo_id, todo_title, todo_category, todo_detail, due_date, finished, updated_at, created_at) values (todo_seq.nextval, 'init_todo', '2', 'init_detail', current_timestamp, false, current_timestamp, current_timestamp);
 
 -- todo category
 insert into todo_category (todo_category_id, todo_category_name, updated_at, created_at) values (todo_category_seq.nextval, 'business', current_timestamp, current_timestamp);

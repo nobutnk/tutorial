@@ -5,7 +5,15 @@
     <!-- omitted -->
     <configuration>
         <date-format>yyyy-MM-dd HH:mm:ss.SSS</date-format>
-        <!-- omitted other configuration -->
     </configuration>
-    <!-- omitted -->
+    
+    <mapping date-format="yyyy-MM-dd">
+        <class-a>tutorial.app.todo.TodoForm</class-a>
+        <class-b>tutorial.domain.model.Todo</class-b>
+        <field>
+            <a>dueDate</a>
+            <b>dueDate</b>
+        </field>
+    </mapping>
+    
 </mappings>
