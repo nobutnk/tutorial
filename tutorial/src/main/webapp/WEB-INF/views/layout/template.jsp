@@ -18,7 +18,7 @@
 <script type="text/javascript">
 
 </script> <!-- (1) -->
-<c:set var="titleKey"> <!-- (2) -->
+<c:set var="titleKey">
     <tiles:insertAttribute name="title" ignore="true" />
 </c:set>
 <title><spring:message code="${titleKey}" text="Create Staff Information" /></title><!-- (3) -->
