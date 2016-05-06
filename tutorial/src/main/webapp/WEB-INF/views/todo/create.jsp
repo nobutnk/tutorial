@@ -65,6 +65,12 @@
             });
         });
         </script>
+        <div class="form-group">
+            <label for="publicTodo">public</label>
+            <form:checkbox path="publicTodo" class="form-control" label="公開" value="true"/>
+            <form:errors path="publicTodo" cssClass="text-danger"/>
+        </div>
+        
         <form:button class="btn btn-info">Create Todo</form:button>
     </form:form>
     </div>

@@ -5,15 +5,12 @@
     <!-- omitted -->
     <configuration>
         <date-format>yyyy-MM-dd HH:mm:ss.SSS</date-format>
+        <custom-converters> <!-- these are always bi-directional -->
+            <converter type="tutorial.app.common.converter.joda.DateTimeCustomConverter" >
+                <class-a>org.joda.time.DateTime</class-a>
+                <class-b>org.joda.time.DateTime</class-b>
+            </converter>
+        </custom-converters>
     </configuration>
-    
-    <mapping date-format="yyyy-MM-dd">
-        <class-a>tutorial.app.todo.TodoForm</class-a>
-        <class-b>tutorial.domain.model.Todo</class-b>
-        <field>
-            <a>dueDate</a>
-            <b>dueDate</b>
-        </field>
-    </mapping>
     
 </mappings>

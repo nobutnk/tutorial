@@ -10,6 +10,7 @@
         <result property="todoCategory" column="todo_category" />
         <result property="todoDetail" column="todo_detail" />
         <result property="dueDate" column="due_date" />
+        <result property="publicTodo" column="public" />
         <result property="finished" column="finished" />
         <result property="updatedAt" column="updated_at" />
         <result property="createdAt" column="created_at" />
@@ -23,6 +24,7 @@
             todo_category,
             todo_detail,
             due_date,
+            public,
             finished,
             updated_at,
             created_at
@@ -42,6 +44,7 @@
             todo_category,
             todo_detail,
             due_date,
+            public,
             finished,
             updated_at,
             created_at
@@ -62,6 +65,7 @@
             todo_category,
             todo_detail,
             due_date,
+            public,
             finished,
             updated_at,
             created_at
@@ -73,6 +77,7 @@
             #{todoCategory},
             #{todoDetail},
             #{dueDate},
+            #{publicTodo},
             #{finished},
             #{updatedAt},
             #{createdAt}
@@ -89,6 +94,7 @@
             todo_category = #{todoCategory},
             todo_detail = #{todoDetail},
             due_date = #{dueDate},
+            public = #{publicTodo},
             finished = #{finished},
             updated_at = current_timestamp
         WHERE

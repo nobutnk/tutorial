@@ -17,21 +17,21 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap-maxlength.js"></script>
 <script type="text/javascript">
 
-</script> <!-- (1) -->
+</script>
 <c:set var="titleKey">
     <tiles:insertAttribute name="title" ignore="true" />
 </c:set>
-<title><spring:message code="${titleKey}" text="Create Staff Information" /></title><!-- (3) -->
+<title><spring:message code="${titleKey}" text="Create Staff Information" /></title>
 </head>
 <body>
     <div class="container-fluid" id="wrapper">
-        <tiles:insertAttribute name="header" /> <!-- (4) -->
+        <tiles:insertAttribute name="header" />
 
     <div id="body">
-        <tiles:insertAttribute name="body" /> <!-- (5) -->
+        <tiles:insertAttribute name="body" />
     </div>
     <div id="footer">
-        <tiles:insertAttribute name="footer" /> <!-- (6) -->
+        <tiles:insertAttribute name="footer" />
     </div>
     </div>
 </body>

@@ -1,7 +1,8 @@
 package tutorial.domain.model;
 
 import java.io.Serializable;
-import java.util.Date;
+
+import org.joda.time.DateTime;
 
 import lombok.Data;
 
@@ -17,12 +18,14 @@ public class Todo implements Serializable {
     
     private String todoDetail;
     
-    private Date dueDate;
+    private DateTime dueDate;
+    
+    private boolean publicTodo;
 
     private boolean finished;
     
-    private Date updatedAt;
+    private DateTime updatedAt;
 
-    private Date createdAt;
+    private DateTime createdAt;
 
 }

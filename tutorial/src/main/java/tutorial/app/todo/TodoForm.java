@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.terasoluna.gfw.common.codelist.ExistInCodeList;
 
 import lombok.Getter;
@@ -47,9 +49,13 @@ public class TodoForm implements Serializable {
     private String todoDetail;
     
     @NotNull(groups = { TodoCreate.class, TodoUpdate.class })
-    private String dueDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private DateTime dueDate;
     
     @NotNull(groups = { TodoFinish.class, TodoUpdate.class, TodoDelete.class })
-    private String updatedAt;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
+    private DateTime updatedAt;
     
+    @NotNull(groups = { TodoCreate.class, TodoUpdate.class })
+    private Boolean publicTodo;
 }

@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
             <label for="todoTitle">Title</label>
-            <form:input path="todoTitle" class="form-control" />
+            <form:input path="todoTitle" class="form-control maxlength" maxlength="30"/>
             <form:errors path="todoTitle" cssClass="text-danger"/>
         </div>
         <div class="form-group">
@@ -38,9 +38,19 @@
         </div>
         <div class="form-group">
             <label for="todoDetail">Detail</label>
-            <form:input path="todoDetail" class="form-control" />
+            <form:input path="todoDetail" class="form-control maxlength" maxlength="100"/>
             <form:errors path="todoDetail" cssClass="text-danger"/>
         </div>
+        <script type="text/javascript">
+        $(function () {
+            $('.maxlength').maxlength({
+                alwaysShow: true,
+                threshold: 1,
+                warningClass: "label label-success",
+                limitReachedClass: "label label-danger"
+            });
+        });
+        </script>
         <div class="form-group">
             <label for="dueDate">DueDate</label>
             <div class="input-group date" id="datetimepicker">
@@ -59,6 +69,11 @@
             });
         });
         </script>
+        <div class="form-group">
+            <label for="publicTodo">public</label>
+            <form:checkbox path="publicTodo" class="form-control" label="公開" value="true"/>
+            <form:errors path="publicTodo" cssClass="text-danger"/>
+        </div>
         <form:hidden path="updatedAt" />
         <form:button>Update Todo</form:button>
     </form:form>

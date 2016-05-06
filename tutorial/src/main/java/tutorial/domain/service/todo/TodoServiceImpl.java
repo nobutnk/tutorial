@@ -1,10 +1,12 @@
 package tutorial.domain.service.todo;
 
 import java.util.Collection;
-import java.util.Date;
 
 import javax.inject.Inject;
 
+import org.joda.time.DateTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.terasoluna.gfw.common.exception.BusinessException;
@@ -18,6 +20,9 @@ import tutorial.domain.repository.todo.TodoRepository;
 @Service
 @Transactional
 public class TodoServiceImpl implements TodoService {
+    
+    private static final Logger logger = LoggerFactory
+            .getLogger(TodoServiceImpl.class);
 
     private static final long MAX_UNFINISHED_COUNT = 100;
     
@@ -56,7 +61,7 @@ public class TodoServiceImpl implements TodoService {
         }
 
         Integer todoId = todoRepository.createTodoId();
-        Date createdAt = new Date();
+        DateTime createdAt = DateTime.now();
 
         todo.setTodoId(todoId.toString());
         todo.setCreatedAt(createdAt);
@@ -69,7 +74,7 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public Todo finish(String todoId, Date updatedAt) {
+    public Todo finish(String todoId, DateTime updatedAt) {
         Todo todo = findOne(todoId);
         if (todo.isFinished()) {
             ResultMessages messages = ResultMessages.error();
@@ -93,7 +98,7 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public void delete(String todoId, Date updatedAt) {
+    public void delete(String todoId, DateTime updatedAt) {
         Todo todo = findOne(todoId);
         todo.setUpdatedAt(updatedAt);
         int resultNum = todoRepository.delete(todo);
@@ -108,6 +113,9 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public Todo update(Todo todo) {
+        
+        logger.info(todo.toString());
+        
         int resultNum = todoRepository.update(todo);
         if (resultNum != 1) {
             ResultMessages messages = ResultMessages.error();

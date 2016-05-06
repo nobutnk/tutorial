@@ -8,4 +8,5 @@
 <%@ taglib uri="http://terasoluna.org/tags" prefix="t"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles-extras" prefix="tilesx"%>
+<%@ taglib uri="http://www.joda.org/joda/time/tags" prefix="joda"%>
 <%@ taglib uri="botDetect" prefix="botDetect" %>

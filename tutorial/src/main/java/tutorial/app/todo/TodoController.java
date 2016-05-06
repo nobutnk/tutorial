@@ -1,5 +1,6 @@
 package tutorial.app.todo;
 
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 
 import javax.inject.Inject;
@@ -103,6 +104,7 @@ public class TodoController {
         }
 
         form = beanMapper.map(todo, TodoForm.class);
+        
         model.addAttribute("todoForm", form);
         return "todo/update";
     }
