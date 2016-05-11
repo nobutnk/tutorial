@@ -1,11 +1,12 @@
 package tutorial.app.todo;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.terasoluna.gfw.common.codelist.ExistInCodeList;
 
@@ -50,11 +51,11 @@ public class TodoForm implements Serializable {
     
     @NotNull(groups = { TodoCreate.class, TodoUpdate.class })
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private DateTime dueDate;
+    private LocalDate dueDate;
     
     @NotNull(groups = { TodoFinish.class, TodoUpdate.class, TodoDelete.class })
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
-    private DateTime updatedAt;
+    private LocalDateTime updatedAt;
     
     @NotNull(groups = { TodoCreate.class, TodoUpdate.class })
     private Boolean publicTodo;

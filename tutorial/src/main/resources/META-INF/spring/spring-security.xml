@@ -76,5 +76,16 @@
     <!-- Put UserID into MDC -->
     <bean id="userIdMDCPutFilter" class="org.terasoluna.gfw.security.web.logging.UserIdMDCPutFilter">
     </bean>
+    
+    <!-- 再認証：Articleは再認証が必要 -->
+    <sec:http auto-config="true">
+        <sec:access-denied-handler ref="reAccessDeniedHandler" />
+        <sec:intercept-url pattern="/article**" access="ROLE_REAUTH" />
+    </sec:http>
+
+    <bean id="reAccessDeniedHandler"
+        class="tutorial.auth.ReAccessDeniedHandler">
+        <property name="errorPage" value="/reauth/" />
+    </bean>
 
 </beans>
