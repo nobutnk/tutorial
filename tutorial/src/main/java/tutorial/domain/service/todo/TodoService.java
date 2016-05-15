@@ -1,8 +1,7 @@
 package tutorial.domain.service.todo;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
-
-import org.joda.time.DateTime;
 
 import tutorial.domain.model.Todo;
 
@@ -14,9 +13,9 @@ public interface TodoService {
 
     Todo create(Todo todo);
 
-    Todo finish(String todoId, DateTime updatedAt);
+    Todo finish(String todoId, LocalDateTime updatedAt);
 
-    void delete(String todoId, DateTime updatedAt);
+    void delete(String todoId, LocalDateTime updatedAt);
     
     Todo update(Todo todo);
 }

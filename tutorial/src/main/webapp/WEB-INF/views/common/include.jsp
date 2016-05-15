@@ -10,3 +10,5 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles-extras" prefix="tilesx"%>
 <%@ taglib uri="http://www.joda.org/joda/time/tags" prefix="joda"%>
 <%@ taglib uri="botDetect" prefix="botDetect" %>
+
+<%@ taglib uri="http://web.tutorial/functions" prefix="tuto"%>

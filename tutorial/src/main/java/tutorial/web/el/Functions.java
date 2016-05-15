@@ -13,6 +13,7 @@ public class Functions {
     }
     
     public static DateTime toJodaDateTime(Object object) {
+        
         if (object instanceof LocalDateTime) {
             LocalDateTime localDateTime = (LocalDateTime) object;
             return new DateTime(localDateTime.getYear(),
@@ -21,7 +22,7 @@ public class Functions {
                     localDateTime.getHour(),
                     localDateTime.getMinute(),
                     localDateTime.getSecond(),
-                    localDateTime.getNano());
+                    localDateTime.getNano()/1000000);
         } else if (object instanceof LocalDate) {
             LocalDate localDate = (LocalDate) object;
             return new DateTime(localDate.getYear(),
@@ -40,7 +41,7 @@ public class Functions {
                     localTime.getHour(),
                     localTime.getMinute(),
                     localTime.getSecond(),
-                    localTime.getNano());
+                    localTime.getNano()/1000000);
         }
         
         return null;
@@ -64,7 +65,7 @@ public class Functions {
                     localTime.getHour(),
                     localTime.getMinute(),
                     localTime.getSecond(),
-                    localTime.getNano());
+                    localTime.getNano()/1000000);
         }
         
         return null;

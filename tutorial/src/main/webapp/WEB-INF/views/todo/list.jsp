@@ -46,20 +46,20 @@
         <td>${f:h(todo.todoTitle)}</td>
         <td>${f:h(CL_TODO_CATEGORIES[todo.todoCategory])}</td>
         <td>${f:h(todo.todoDetail)}</td>
-        <td><joda:format pattern="yyyy/MM/dd" value="${todo.dueDate}" /></td>
+        <td><joda:format pattern="yyyy/MM/dd" value="${tuto:jdt(todo.dueDate)}" /></td>
         <td>${f:h(todo.publicTodo)}</td>
         <td>${f:h(todo.finished)}</td>
-        <td><joda:format pattern="yyyy/MM/dd HH:mm:ss" value="${todo.updatedAt}" /></td>
-        <td><joda:format pattern="yyyy/MM/dd HH:mm:ss" value="${todo.createdAt}" /></td>
+        <td><joda:format pattern="yyyy/MM/dd HH:mm:ss.SSS" value="${tuto:jdt(todo.updatedAt)}" /></td>
+        <td><joda:format pattern="yyyy/MM/dd HH:mm:ss.SSS" value="${tuto:jdt(todo.createdAt)}" /></td>
         <td><input
                 type="button" value="update" class="btn btn-info" id="update-${f:h(todo.todoId)}"
                 data-n="${f:h(todo.todoId)}">
             <input
                 type="button" value="finish" class="btn btn-success" id="finish-${f:h(todo.todoId)}"
-                data-n="${f:h(todo.todoId)}" data-m='<joda:format pattern="yyyy-MM-dd HH:mm:ss.SSS" value="${todo.updatedAt}" />'>
+                data-n="${f:h(todo.todoId)}" data-m='<joda:format pattern="yyyy-MM-dd HH:mm:ss.SSS" value="${tuto:jdt(todo.updatedAt)}" />'>
             <input
                 type="button" value="delete" class="btn btn-warning" id="delete-${f:h(todo.todoId)}"
-                data-n="${f:h(todo.todoId)}" data-m='<joda:format pattern="yyyy-MM-dd HH:mm:ss.SSS" value="${todo.updatedAt}" />'>
+                data-n="${f:h(todo.todoId)}" data-m='<joda:format pattern="yyyy-MM-dd HH:mm:ss.SSS" value="${tuto:jdt(todo.updatedAt)}" />'>
                 </td>
     </tr>
     </c:forEach>

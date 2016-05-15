@@ -1,6 +1,5 @@
 package tutorial.app.todo;
 
-import java.text.SimpleDateFormat;
 import java.util.Collection;
 
 import javax.inject.Inject;

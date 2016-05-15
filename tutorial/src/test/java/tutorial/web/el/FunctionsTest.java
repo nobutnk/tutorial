@@ -63,6 +63,6 @@ public class FunctionsTest {
         Assert.assertThat(jodaTime.getHourOfDay(), is(localTime.getHour()));
         Assert.assertThat(jodaTime.getMinuteOfHour(), is(localTime.getMinute()));
         Assert.assertThat(jodaTime.getSecondOfMinute(), is(localTime.getSecond()));
-        Assert.assertThat(jodaTime.getMillisOfSecond(), is(localTime.getNano()));
+        Assert.assertThat(jodaTime.getMillisOfSecond(), is(localTime.getNano()/1000));
     }
 }
