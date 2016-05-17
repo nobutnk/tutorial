@@ -103,6 +103,19 @@
             <target>1.8</target>
           </configuration>
         </plugin>
+        <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>0.7.4.201502262128</version>
+          <executions>
+            <execution>
+              <id>prepare-agent</id>
+              <goals>
+                <goal>prepare-agent</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
@@ -198,5 +211,15 @@
       <artifactId>jcaptcha-integration-simple-servlet</artifactId>
       <version>2.0-alpha-1</version>
     </dependency>
+    
+    <!-- http://mvnrepository.com/artifact/org.dbunit/dbunit -->
+    <dependency>
+      <groupId>org.dbunit</groupId>
+      <artifactId>dbunit</artifactId>
+      <version>2.5.2</version>
+      <scope>test</scope>
+    </dependency>
+
+    
   </dependencies>
 </project>

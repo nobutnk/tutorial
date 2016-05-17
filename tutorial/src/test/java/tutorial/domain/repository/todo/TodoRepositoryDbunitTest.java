@@ -2,19 +2,24 @@ package tutorial.domain.repository.todo;
 
 import static org.hamcrest.CoreMatchers.is;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.sql.DataSource;
 
+import org.dbunit.DataSourceBasedDBTestCase;
+import org.dbunit.dataset.IDataSet;
+import org.dbunit.dataset.excel.XlsDataSet;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -26,33 +31,20 @@ import tutorial.domain.model.Todo;
 @ContextConfiguration(locations = { "classpath:test-context.xml" })
 @Transactional
 @Rollback
-public class TodoRepositoryTest {
+public class TodoRepositoryDbunitTest extends DataSourceBasedDBTestCase {
     
     @Inject
     TodoRepository todoRepository;
 
     @Inject
     NamedParameterJdbcTemplate jdbcTemplate;
+    
+    @Inject
+    private TransactionAwareDataSourceProxy dataSourceTest;
 
     @Before
-    public void setUp() {
-        String q = "insert into todo ("
-                + "todo_id, todo_title, todo_category, todo_detail, "
-                + "due_date, public, finished, updated_at, created_at)"
-                + " values(:todoId, :todoTitle, "
-                + ":todoCategory, :todoDetail, :dueDate,"
-                + " :public, :finished, :updatedAt, :createdAt) ";
-        Map<String, Object> param = new HashMap<String, Object>();
-        param.put("todoId", 100);
-        param.put("todoTitle", "junit test");
-        param.put("todoCategory", "1");
-        param.put("todoDetail", "junit detail");
-        param.put("dueDate", new Date());
-        param.put("public", Boolean.FALSE);
-        param.put("finished", Boolean.FALSE);
-        param.put("updatedAt", new Date());
-        param.put("createdAt", new Date());
-        jdbcTemplate.update(q, param);
+    public void setUp() throws Exception {
+        super.setUp();
     }
     
     @Test
@@ -91,6 +83,16 @@ public class TodoRepositoryTest {
         Assert.assertThat(actualMap.get("todo_title"), is("create test"));
         Assert.assertThat(actualMap.get("todo_category"), is("2"));
         Assert.assertThat(actualMap.get("todo_detail"), is("create detail"));
+    }
+
+    @Override
+    protected DataSource getDataSource() {
+        return dataSourceTest;
+    }
+
+    @Override
+    protected IDataSet getDataSet() throws Exception {
+        return new XlsDataSet(new File("fixtures.xls"));
     }
 
 }
