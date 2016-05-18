@@ -24,6 +24,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.ResourceUtils;
 
 import tutorial.domain.model.Todo;
 
@@ -92,7 +93,8 @@ public class TodoRepositoryDbunitTest extends DataSourceBasedDBTestCase {
 
     @Override
     protected IDataSet getDataSet() throws Exception {
-        return new XlsDataSet(new File("fixtures.xls"));
+        File xlsFile = ResourceUtils.getFile("classpath:testdata/todo/tutorial.xlsx");
+        return new XlsDataSet(xlsFile);
     }
 
 }
