@@ -28,7 +28,7 @@
     </bean>
     
     <!-- init database -->
-    <jdbc:initialize-database data-source="dataSource">
+    <jdbc:initialize-database data-source="realDataSource">
         <jdbc:script location="classpath:sql/create.sql" />
         <jdbc:script location="classpath:sql/data.sql"/>
     </jdbc:initialize-database>

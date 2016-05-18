@@ -2,7 +2,6 @@ package tutorial.domain.repository.todo;
 
 import static org.hamcrest.CoreMatchers.is;
 
-import java.io.File;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -11,9 +10,6 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
-import org.dbunit.DataSourceBasedDBTestCase;
-import org.dbunit.dataset.IDataSet;
-import org.dbunit.dataset.excel.XlsDataSet;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,15 +20,15 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.ResourceUtils;
 
 import tutorial.domain.model.Todo;
+import tutorial.testutil.TutorialDataSourceBasedDBTestCase;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:test-context.xml" })
 @Transactional
 @Rollback
-public class TodoRepositoryDbunitTest extends DataSourceBasedDBTestCase {
+public class TodoRepositoryDbunitTest extends TutorialDataSourceBasedDBTestCase {
     
     @Inject
     TodoRepository todoRepository;
@@ -90,11 +86,10 @@ public class TodoRepositoryDbunitTest extends DataSourceBasedDBTestCase {
     protected DataSource getDataSource() {
         return dataSourceTest;
     }
-
+    
     @Override
-    protected IDataSet getDataSet() throws Exception {
-        File xlsFile = ResourceUtils.getFile("classpath:testdata/todo/tutorial.xlsx");
-        return new XlsDataSet(xlsFile);
+    protected String getFilePath() {
+        return "classpath:testdata/todo/tutorial.xlsx";
     }
 
 }
