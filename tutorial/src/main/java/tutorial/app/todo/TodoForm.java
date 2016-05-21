@@ -35,7 +35,7 @@ public class TodoForm implements Serializable {
     };
     
     @NotNull(groups = { TodoFinish.class, TodoUpdate.class, TodoUpdateForm.class, TodoDelete.class })
-    private String todoId;
+    private Integer todoId;
 
     @NotNull(groups = { TodoCreate.class, TodoUpdate.class })
     @Size(min = 1, max = 30, groups = { TodoFinish.class, TodoUpdate.class })

@@ -10,7 +10,7 @@ import lombok.Data;
 public class Todo implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private String todoId;
+    private Integer todoId;
 
     private String todoTitle;
     

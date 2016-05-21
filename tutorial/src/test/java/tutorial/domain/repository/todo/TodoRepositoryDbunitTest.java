@@ -46,9 +46,9 @@ public class TodoRepositoryDbunitTest extends TutorialDataSourceBasedDBTestCase 
     
     @Test
     public void expected100findOne() {
-        Todo actualTodo = todoRepository.findOne("100");
+        Todo actualTodo = todoRepository.findOne(100);
         
-        Assert.assertThat(actualTodo.getTodoId(), is("100"));
+        Assert.assertThat(actualTodo.getTodoId(), is(100));
         Assert.assertThat(actualTodo.getTodoTitle(), is("junit test"));
         Assert.assertThat(actualTodo.getTodoCategory(), is("1"));
         Assert.assertThat(actualTodo.getTodoDetail(), is("junit detail"));
@@ -57,7 +57,7 @@ public class TodoRepositoryDbunitTest extends TutorialDataSourceBasedDBTestCase 
     @Test
     public void expected100create() {
         Todo todo = new Todo();
-        todo.setTodoId("101");
+        todo.setTodoId(101);
         todo.setTodoTitle("create test");
         todo.setTodoCategory("2");
         todo.setTodoDetail("create detail");

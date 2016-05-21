@@ -3,7 +3,7 @@ increment by 1
 start with 1;
 
 create table if not exists account(
-    id varchar(36) primary key,
+    id integer primary key,
     username varchar(36) unique,
     password varchar(256),
     admin boolean,

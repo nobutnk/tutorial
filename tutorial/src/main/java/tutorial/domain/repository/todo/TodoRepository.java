@@ -6,7 +6,7 @@ import tutorial.domain.model.Todo;
 
 public interface TodoRepository {
 
-    Todo findOne(String todoId);
+    Todo findOne(Integer todoId);
 
     Collection<Todo> findAll();
 

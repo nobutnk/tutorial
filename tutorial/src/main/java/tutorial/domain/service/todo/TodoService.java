@@ -9,13 +9,13 @@ public interface TodoService {
 
     Collection<Todo> findAll();
     
-    Todo findOne(String todoId);
+    Todo findOne(Integer todoId);
 
     Todo create(Todo todo);
 
-    Todo finish(String todoId, LocalDateTime updatedAt);
+    Todo finish(Integer todoId, LocalDateTime updatedAt);
 
-    void delete(String todoId, LocalDateTime updatedAt);
+    void delete(Integer todoId, LocalDateTime updatedAt);
     
     Todo update(Todo todo);
 }

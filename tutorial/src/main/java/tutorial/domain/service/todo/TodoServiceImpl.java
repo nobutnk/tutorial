@@ -31,7 +31,7 @@ public class TodoServiceImpl implements TodoService {
     
     @Override
     @Transactional(readOnly = true)
-    public Todo findOne(String todoId) {
+    public Todo findOne(Integer todoId) {
         Todo todo = todoRepository.findOne(todoId);
         if (todo == null) {
             ResultMessages messages = ResultMessages.error();
@@ -63,7 +63,7 @@ public class TodoServiceImpl implements TodoService {
         Integer todoId = todoRepository.createTodoId();
         LocalDateTime createdAt = LocalDateTime.now();
 
-        todo.setTodoId(todoId.toString());
+        todo.setTodoId(todoId);
         todo.setCreatedAt(createdAt);
         todo.setUpdatedAt(createdAt);
         todo.setFinished(false);
@@ -74,7 +74,7 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public Todo finish(String todoId, LocalDateTime updatedAt) {
+    public Todo finish(Integer todoId, LocalDateTime updatedAt) {
         Todo todo = findOne(todoId);
         if (todo.isFinished()) {
             ResultMessages messages = ResultMessages.error();
@@ -98,7 +98,7 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public void delete(String todoId, LocalDateTime updatedAt) {
+    public void delete(Integer todoId, LocalDateTime updatedAt) {
         Todo todo = findOne(todoId);
         todo.setUpdatedAt(updatedAt);
         int resultNum = todoRepository.delete(todo);

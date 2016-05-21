@@ -1,0 +1,3 @@
+id,username,password,admin,enabled
+1,user@test.com,$2a$10$qPfTIJBpIkQLz9gBuZZT0u4n9S0wHGhUMbnOThhoNZzuAs.eeLHJS,false,true
+2,admin@test.com,$2a$10$AyttVT5L1DKGm6Pg2r/EJ.v27odE3WD9dA2SEeb3ElhuG.ZAQButC,false,true

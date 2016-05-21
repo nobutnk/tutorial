@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -14,10 +16,14 @@ import org.terasoluna.gfw.common.message.ResultMessages;
 
 import tutorial.domain.model.Account;
 import tutorial.domain.repository.auth.AccountRepository;
+import tutorial.domain.service.todo.TodoServiceImpl;
 
 @Service
 @Transactional
 public class AccountUserServiceImpl implements AccountUserService {
+    
+    private static final Logger logger = LoggerFactory
+            .getLogger(AccountUserServiceImpl.class);
     
     @Inject
     AccountRepository accountRepository;
@@ -31,6 +37,9 @@ public class AccountUserServiceImpl implements AccountUserService {
         Integer id = accountRepository.createUserId();
         
         String encodedPassword = passwordEncoder.encode(account.getPassword());
+        
+        logger.info("password is " + encodedPassword);
+        
         Date createdAt = new Date();
         
         account.setId(id);
