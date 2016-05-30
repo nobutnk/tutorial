@@ -42,7 +42,7 @@ public class TodoForm implements Serializable {
     private String todoTitle;
     
     @NotNull(groups = { TodoCreate.class, TodoUpdate.class })
-    @ExistInCodeList(codeListId = "CL_TODO_CATEGORIES", groups = { TodoFinish.class, TodoUpdate.class })
+    @ExistInCodeList(codeListId = "CL_TODO_CATEGORIES", groups = { TodoCreate.class, TodoUpdate.class })
     private String todoCategory;
     
     @NotNull(groups = { TodoCreate.class, TodoUpdate.class })
