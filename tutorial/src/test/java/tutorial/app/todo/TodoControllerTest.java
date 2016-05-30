@@ -97,6 +97,22 @@ public class TodoControllerTest {
         
         result
             .andExpect(status().isOk())
+            .andExpect(model().hasErrors())
+            .andExpect(model().errorCount(1))
             .andExpect(model().attributeHasFieldErrorCode("todoForm", "todoCategory", "ExistInCodeList"));
+    }
+    
+    @Test
+    public void expectInputErrorsCreateTest() throws Exception {
+        ResultActions result = this.mockMvc.perform(post("/todo/create"));
+        
+        result
+            .andExpect(status().isOk())
+            .andExpect(model().hasErrors())
+            .andExpect(model().errorCount(5))
+            .andExpect(model().attributeHasFieldErrorCode("todoForm", "todoTitle", "NotNull"))
+            .andExpect(model().attributeHasFieldErrorCode("todoForm", "todoDetail", "NotNull"))
+            .andExpect(model().attributeHasFieldErrorCode("todoForm", "dueDate", "NotNull"))
+            .andExpect(model().attributeHasFieldErrorCode("todoForm", "todoCategory", "NotNull"));
     }
 }
