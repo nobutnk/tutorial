@@ -1,5 +1,17 @@
 begin;
 
+-- delete all tables
+DELETE FROM account;
+DELETE FROM todo_category;
+DELETE FROM todo;
+DELETE FROM article;
+DELETE FROM item_category;
+DELETE FROM item;
+DELETE FROM cart_item;
+DELETE FROM cart;
+DELETE FROM order_items;
+DELETE FROM orders;
+
 -- account
 INSERT INTO account (id, username, password, admin, enabled, updated_at, created_at)
     SELECT id, username, password, admin, enabled, current_timestamp, current_timestamp
