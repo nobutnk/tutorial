@@ -113,7 +113,6 @@
         <plugin>
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
-          <version>0.7.4.201502262128</version>
           <executions>
             <execution>
               <id>prepare-agent</id>
@@ -212,11 +211,6 @@
       <groupId>com.captcha</groupId>
       <artifactId>botdetect</artifactId>
       <version>4.0.alpha4</version>
-    </dependency>
-    <dependency>
-      <groupId>com.octo.captcha</groupId>
-      <artifactId>jcaptcha-integration-simple-servlet</artifactId>
-      <version>2.0-alpha-1</version>
     </dependency>
     
     <!-- http://mvnrepository.com/artifact/org.dbunit/dbunit -->
