@@ -22,6 +22,21 @@
          </util:map>
      </property>
     </bean>
+    
+    <bean id="CL_PARTIES" class="org.terasoluna.gfw.common.codelist.SimpleMapCodeList">
+     <property name="map">
+         <util:map>
+             <entry key="1" value="Tanaka" />
+             <entry key="2" value="Suzuki" />
+             <entry key="3" value="Takahashi" />
+             <entry key="4" value="Saito" />
+             <entry key="5" value="Hasegawa" />
+             <entry key="6" value="Sato" />
+             <entry key="7" value="Watanabe" />
+             <entry key="8" value="Hayashi" />
+         </util:map>
+     </property>
+    </bean>
 
     <bean id="jdbcTemplateForCodeList" class="org.springframework.jdbc.core.JdbcTemplate" >
     <property name="dataSource" ref="dataSource" />

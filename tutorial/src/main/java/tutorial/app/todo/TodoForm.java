@@ -3,6 +3,7 @@ package tutorial.app.todo;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -12,6 +13,7 @@ import org.terasoluna.gfw.common.codelist.ExistInCodeList;
 
 import lombok.Getter;
 import lombok.Setter;
+import tutorial.app.common.validator.annotation.ListExistInCodeList;
 
 @Setter
 @Getter
@@ -44,6 +46,10 @@ public class TodoForm implements Serializable {
     @NotNull(groups = { TodoCreate.class, TodoUpdate.class })
     @ExistInCodeList(codeListId = "CL_TODO_CATEGORIES", groups = { TodoCreate.class, TodoUpdate.class })
     private String todoCategory;
+    
+    @NotNull(groups = { TodoCreate.class, TodoUpdate.class })
+    @ListExistInCodeList(codeListId = "CL_PARTIES", groups = { TodoCreate.class, TodoUpdate.class })
+    private List<String> parties;
     
     @NotNull(groups = { TodoCreate.class, TodoUpdate.class })
     @Size(min = 1, max = 100, groups = { TodoFinish.class, TodoUpdate.class })

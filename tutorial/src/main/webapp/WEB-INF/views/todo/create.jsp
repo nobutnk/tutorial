@@ -66,6 +66,13 @@
         });
         </script>
         <div class="form-group">
+            <label for="parties">parties</label>
+            <form:select path="parties" class="form-control" multiple="true">
+                <form:option value="" label="--Select--" />
+                <form:options items="${CL_PARTIES}" />
+            </form:select>
+        </div>
+        <div class="form-group">
             <label for="publicTodo">public</label>
             <form:checkbox path="publicTodo" class="form-control" label="公開" value="true"/>
             <form:errors path="publicTodo" cssClass="text-danger"/>

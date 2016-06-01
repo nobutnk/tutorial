@@ -80,6 +80,7 @@ public class TodoControllerTest {
                 .param("todoDetail", "junitDetail")
                 .param("dueDate", "2020-10-10")
                 .param("publicTodo", "false")
+                .param("parties[0]", "1")
                 .param("todoCategory", "1"));
         
         result
@@ -93,6 +94,7 @@ public class TodoControllerTest {
                 .param("todoDetail", "junitDetail")
                 .param("dueDate", "2020-10-10")
                 .param("publicTodo", "false")
+                .param("parties[0]", "1")
                 .param("todoCategory", "21"));
         
         result
@@ -103,16 +105,36 @@ public class TodoControllerTest {
     }
     
     @Test
+    public void expectInputErrorListCreateTest() throws Exception {
+        ResultActions result = this.mockMvc.perform(post("/todo/create")
+                .param("todoTitle", "junitTitle")
+                .param("todoDetail", "junitDetail")
+                .param("dueDate", "2020-10-10")
+                .param("publicTodo", "false")
+                .param("parties[0]", "1")
+                .param("parties[1]", "11")
+                .param("todoCategory", "21"));
+        
+        result
+            .andExpect(status().isOk())
+            .andExpect(model().hasErrors())
+            .andExpect(model().errorCount(2))
+            .andExpect(model().attributeHasFieldErrorCode("todoForm", "todoCategory", "ExistInCodeList"))
+            .andExpect(model().attributeHasFieldErrorCode("todoForm", "parties", "ListExistInCodeList"));
+    }
+    
+    @Test
     public void expectInputErrorsCreateTest() throws Exception {
         ResultActions result = this.mockMvc.perform(post("/todo/create"));
         
         result
             .andExpect(status().isOk())
             .andExpect(model().hasErrors())
-            .andExpect(model().errorCount(5))
+            .andExpect(model().errorCount(6))
             .andExpect(model().attributeHasFieldErrorCode("todoForm", "todoTitle", "NotNull"))
             .andExpect(model().attributeHasFieldErrorCode("todoForm", "todoDetail", "NotNull"))
             .andExpect(model().attributeHasFieldErrorCode("todoForm", "dueDate", "NotNull"))
+            .andExpect(model().attributeHasFieldErrorCode("todoForm", "parties", "NotNull"))
             .andExpect(model().attributeHasFieldErrorCode("todoForm", "todoCategory", "NotNull"));
     }
 }
