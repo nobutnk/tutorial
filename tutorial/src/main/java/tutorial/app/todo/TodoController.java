@@ -43,7 +43,8 @@ public class TodoController {
     }
 
     @RequestMapping(value = "list")
-    public String list(Model model) {
+    public String list(TodoForm todoForm,
+            BindingResult bindingResult,Model model) {
         Collection<Todo> todos = todoService.findAll();
         model.addAttribute("todos", todos);
         return "todo/list";
@@ -76,7 +77,7 @@ public class TodoController {
             todoService.create(todo);
         } catch (BusinessException e) {
             model.addAttribute(e.getResultMessages());
-            return list(model);
+            return list(todoForm, bindingResult, model);
         }
 
         attributes.addFlashAttribute(ResultMessages.success().add(
@@ -91,7 +92,7 @@ public class TodoController {
             RedirectAttributes attributes) {
 
         if (bindingResult.hasErrors()) {
-            return list(model);
+            return list(form, bindingResult, model);
         }
 
         Todo todo;
@@ -99,7 +100,7 @@ public class TodoController {
             todo = todoService.findOne(form.getTodoId());
         } catch (BusinessException e) {
             model.addAttribute(e.getResultMessages());
-            return list(model);
+            return list(form, bindingResult, model);
         }
 
         form = beanMapper.map(todo, TodoForm.class);
@@ -115,7 +116,7 @@ public class TodoController {
             RedirectAttributes attributes) {
         
         if (bindingResult.hasErrors()) {
-            return list(model);
+            return list(todoForm, bindingResult, model);
         }
 
         Todo todo = beanMapper.map(todoForm, Todo.class);
@@ -124,7 +125,7 @@ public class TodoController {
             todoService.update(todo);
         } catch (BusinessException e) {
             model.addAttribute(e.getResultMessages());
-            return list(model);
+            return list(todoForm, bindingResult, model);
         }
 
         attributes.addFlashAttribute(ResultMessages.success().add(
@@ -139,7 +140,7 @@ public class TodoController {
             RedirectAttributes attributes) {
 
         if (bindingResult.hasErrors()) {
-            return list(model);
+            return list(todoForm, bindingResult, model);
         }
         
         Todo todo = beanMapper.map(todoForm, Todo.class);
@@ -148,7 +149,7 @@ public class TodoController {
             todoService.finish(todo.getTodoId(), todo.getUpdatedAt());
         } catch (BusinessException e) {
             model.addAttribute(e.getResultMessages());
-            return list(model);
+            return list(todoForm, bindingResult, model);
         }
 
         attributes.addFlashAttribute(ResultMessages.success().add(
@@ -163,7 +164,7 @@ public class TodoController {
             RedirectAttributes attributes) {
 
         if (bindingResult.hasErrors()) {
-            return list(model);
+            return list(todoForm, bindingResult, model);
         }
         
         Todo todo = beanMapper.map(todoForm, Todo.class);
@@ -172,7 +173,7 @@ public class TodoController {
             todoService.delete(todo.getTodoId(), todo.getUpdatedAt());
         } catch (BusinessException e) {
             model.addAttribute(e.getResultMessages());
-            return list(model);
+            return list(todoForm, bindingResult, model);
         }
 
         attributes.addFlashAttribute(ResultMessages.success().add(

@@ -4,9 +4,10 @@
     <t:messagesPanel/>
     <div class="container">
     <form:form
-       action="${pageContext.request.contextPath}/todo/create"
-        method="post" modelAttribute="todoForm">
+       action="${pageContext.request.contextPath}/todo/list"
+        method="get" modelAttribute="todoForm">
         <form:input path="todoTitle" />
+        <form:errors path="todoTitle" />
         <form:button>Search Todo</form:button>
     </form:form>
     </div>
