@@ -56,7 +56,7 @@ public class TodoForm implements Serializable {
     private String todoDetail;
     
     @NotNull(groups = { TodoCreate.class, TodoUpdate.class })
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "uuuu-MM-dd")
     private LocalDate dueDate;
     
     @NotNull(groups = { TodoFinish.class, TodoUpdate.class, TodoDelete.class })

@@ -49,7 +49,7 @@
         </script>
         <div class="form-group">
             <label for="dueDate">DueDate</label>
-            <div class="input-group date" id="datetimepicker">
+            <div class="input-group date" id="datetimepicker__">
                 <form:input path="dueDate" class="form-control"/>
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>

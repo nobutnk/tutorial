@@ -15,7 +15,7 @@
     <context:property-placeholder
         location="classpath*:/META-INF/spring/*.properties" />
 
-    <mvc:annotation-driven>
+    <mvc:annotation-driven conversion-service="conversionService">
         <mvc:argument-resolvers>
             <bean
                 class="org.springframework.data.web.PageableHandlerMethodArgumentResolver" />

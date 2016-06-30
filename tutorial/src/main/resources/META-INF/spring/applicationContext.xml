@@ -56,5 +56,13 @@
         class="org.terasoluna.gfw.web.exception.ExceptionLoggingFilter" >
         <property name="exceptionLogger" ref="exceptionLogger" />
     </bean>
+    
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="formatters">
+            <set>
+                <bean class="tutorial.app.common.format.datetime.standard.StrictJsr310DateTimeFormatAnnotationFormatterFactory" />
+            </set>
+        </property>
+    </bean>
 
 </beans>

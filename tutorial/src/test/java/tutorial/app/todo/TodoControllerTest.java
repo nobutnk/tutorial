@@ -124,6 +124,26 @@ public class TodoControllerTest {
     }
     
     @Test
+    public void expectInputDateErrorListCreateTest() throws Exception {
+        ResultActions result = this.mockMvc.perform(post("/todo/create")
+                .param("todoTitle", "junitTitle")
+                .param("todoDetail", "junitDetail")
+                .param("dueDate", "2016-02-30")
+                .param("publicTodo", "false")
+                .param("parties[0]", "1")
+                .param("parties[1]", "11")
+                .param("todoCategory", "21"));
+        
+        result
+            .andExpect(status().isOk())
+            .andExpect(model().hasErrors())
+            .andExpect(model().errorCount(3))
+            .andExpect(model().attributeHasFieldErrorCode("todoForm", "dueDate", "typeMismatch"))
+            .andExpect(model().attributeHasFieldErrorCode("todoForm", "todoCategory", "ExistInCodeList"))
+            .andExpect(model().attributeHasFieldErrorCode("todoForm", "parties", "ListExistInCodeList"));
+    }
+    
+    @Test
     public void expectInputErrorsCreateTest() throws Exception {
         ResultActions result = this.mockMvc.perform(post("/todo/create"));
         
