@@ -4,6 +4,17 @@
    "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
+    <definition name="layoutsOfUser"
+         template="/WEB-INF/views/layout/templateUser.jsp">
+     </definition>
+
+     <definition name="*/user*" extends="layoutsOfUser">
+         <put-attribute name="body" value="/WEB-INF/views/user/user.jsp" />
+     </definition>
+
+
+
+
     <definition name="layouts"
         template="/WEB-INF/views/layout/template.jsp">
         <put-attribute name="header"

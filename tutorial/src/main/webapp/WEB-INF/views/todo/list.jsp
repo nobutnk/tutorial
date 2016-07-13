@@ -12,6 +12,16 @@
     </form:form>
     </div>
 <hr />
+
+<script type="text/javascript">
+        $(document).ready(function() {
+           var userUri = '${pageContext.request.contextPath}/user/find?id=' + <sec:authentication property="principal.account.id"/>;
+           console.log(userUri);
+           $('#userTarget').load(userUri);
+        });
+</script>    
+<div id="userTarget"></div>
+<hr />
     <div class="container" id="todoList">
     <table class="table table-hover">
     <thead>

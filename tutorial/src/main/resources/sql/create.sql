@@ -12,6 +12,16 @@ create table if not exists account(
     created_at timestamp
 );
 
+create table if not exists users(
+    id integer primary key,
+    first_name varchar(36) not null,
+    last_name varchar(36) not null,
+    birthday date not null,
+    updated_at timestamp,
+    created_at timestamp,
+    FOREIGN KEY(id) REFERENCES account(id)
+);
+
 create table if not exists article(
     article_id varchar(36) primary key,
     file blob not null,
